@@ -96,6 +96,7 @@
       <nav class="flex items-center space-x-6">
         <a href="#about" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Profile</a>
         <a href="#research" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Research</a>
+        <a href="#grants" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Grants</a>
         <a href="#skills" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Skills</a>
         <a href="#projects" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Projects</a>
         <a href="#publications" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Publications</a>
@@ -264,11 +265,48 @@
       </div>
     </section>
 
+    <!-- Research Grants & Funding Section -->
+    <section id="grants" class="space-y-6">
+      <div class="flex items-center space-x-4">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
+          <span class="text-teal-600 dark:text-accentTeal mr-2">03.</span>funding_grants.json
+        </h2>
+        <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
+      </div>
+
+      <!-- Grants Feed Container -->
+      <div class="bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder rounded-xl overflow-hidden shadow-sm dark:shadow-lg">
+        
+        <!-- Status bar -->
+        <div class="bg-slate-50 dark:bg-brandDark/50 border-b border-slate-200 dark:border-brandDarkBorder/60 px-4 py-2.5 flex justify-between items-center text-xs font-mono">
+          <div class="flex items-center space-x-2 text-slate-500">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+            <span>External API Connection Active</span>
+          </div>
+          <span class="text-slate-500 dark:text-slate-500">Research Funding</span>
+        </div>
+
+        <!-- Render list -->
+        <div class="divide-y divide-slate-200 dark:divide-brandDarkBorder" id="grants-container">
+          <!-- Loading State (Skeleton) -->
+          <div class="p-6 space-y-4 animate-pulse">
+            <div class="flex items-center justify-between">
+              <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-1/4"></div>
+              <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-1/12"></div>
+            </div>
+            <div class="h-5 bg-slate-200 dark:bg-slate-700/50 rounded w-11/12"></div>
+            <div class="h-3 bg-slate-200 dark:bg-slate-700/50 rounded w-1/2"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Tech Stack & Infrastructure Section -->
     <section id="skills" class="space-y-6">
       <div class="flex items-center space-x-4">
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
-          <span class="text-teal-600 dark:text-accentTeal mr-2">03.</span>infrastructure_stack
+          <span class="text-teal-600 dark:text-accentTeal mr-2">04.</span>infrastructure_stack
         </h2>
         <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
@@ -344,7 +382,7 @@
     <section id="projects" class="space-y-6">
       <div class="flex items-center space-x-4">
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
-          <span class="text-teal-600 dark:text-accentTeal mr-2">04.</span>clinical_solutions
+          <span class="text-teal-600 dark:text-accentTeal mr-2">05.</span>clinical_solutions
         </h2>
         <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
@@ -402,7 +440,7 @@
     <section id="publications" class="space-y-6">
       <div class="flex items-center space-x-4">
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
-          <span class="text-teal-600 dark:text-accentTeal mr-2">05.</span>publications.json
+          <span class="text-teal-600 dark:text-accentTeal mr-2">06.</span>publications.json
         </h2>
         <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
@@ -885,7 +923,108 @@
     });
 
     // Start fetching
-    window.addEventListener('DOMContentLoaded', loadPublications);
+    window.addEventListener('DOMContentLoaded', () => {
+      loadPublications();
+      loadGrants();
+    });
+
+    // -------------------------------------------------------------
+    // 4. Asynchronous Grants Fetching & Reactive System
+    // -------------------------------------------------------------
+    let allGrants = [];
+    const grantsContainer = document.getElementById('grants-container');
+
+    const localFallbackGrants = [
+      {
+        "title": "A white and brown balance of obesity; developmental programming of adipose tissue by chronodisruption",
+        "type": "Research Grant",
+        "start_year": "2019",
+        "end_year": "2022",
+        "organization": "Comisión Nacional de Investigación Científica y Tecnológica",
+        "grant_number": "FONDECYT 11190711",
+        "link": "https://orcid.org/0000-0002-1474-8066"
+      },
+      {
+        "title": "La fuente de la juventud: desarrollo de un suplemento antioxidante, antiinflamatorio y neuroregenerativo derivado del lúpulo para el rejuvenecimiento cerebral",
+        "type": "Salary Award / Fellowship",
+        "start_year": "2018",
+        "end_year": "2020",
+        "organization": "Fondo de Fomento al Desarrollo Científico y Tecnológico",
+        "grant_number": "FONDEF ID17AM0043",
+        "link": "https://orcid.org/0000-0002-1474-8066"
+      }
+    ];
+
+    async function loadGrants() {
+      try {
+        const response = await fetch('./data/grants.json');
+        if (!response.ok) {
+          throw new Error('Failed to load local grants data');
+        }
+        allGrants = await response.json();
+      } catch (error) {
+        console.warn('Grants fetch failed, checking for local protocol fallback:', error);
+        if (window.location.protocol === 'file:') {
+          allGrants = localFallbackGrants;
+          console.log('Grants loaded from local fallback due to file:// CORS restrictions');
+        } else {
+          grantsContainer.innerHTML = `
+            <div class="p-6 text-center text-slate-500 font-mono text-sm">
+              <i class="fa-solid fa-circle-exclamation text-rose-500 text-lg mb-2 block"></i>
+              Failed to load research grants. <br>
+              <span class="text-xs text-slate-500 mt-1 block">Please view my profile directly on ORCID.</span>
+            </div>
+          `;
+          return;
+        }
+      }
+      renderGrants();
+    }
+
+    function renderGrants() {
+      if (allGrants.length === 0) {
+        grantsContainer.innerHTML = `
+          <div class="p-8 text-center text-slate-500 font-mono text-sm">
+            <i class="fa-solid fa-folder-open text-slate-600 text-lg mb-2 block"></i>
+            No research grants found.
+          </div>
+        `;
+        return;
+      }
+
+      grantsContainer.innerHTML = allGrants.map((grant, idx) => {
+        return `
+          <div class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-250 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">
+                  ${grant.start_year} - ${grant.end_year}
+                </span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">
+                  ID: ${grant.grant_number}
+                </span>
+              </div>
+              <h4 class="text-base font-bold text-slate-900 dark:text-white transition-colors">
+                ${grant.title}
+              </h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
+                ${grant.organization}
+              </p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-500 italic">
+                ${grant.type}
+              </p>
+            </div>
+            
+            <div class="flex sm:flex-col items-center sm:items-end justify-center w-full sm:w-auto self-center">
+              <a href="${grant.link}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-150 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" title="View Grant Info">
+                <span>View Grant</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
   </script>
 </body>
 </html>
