@@ -49,13 +49,13 @@
     .bg-grid {
       background-size: 50px 50px;
       background-image: 
+        linear-gradient(to right, rgba(13, 148, 136, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(13, 148, 136, 0.04) 1px, transparent 1px);
+    }
+    .dark .bg-grid {
+      background-image: 
         linear-gradient(to right, rgba(0, 245, 212, 0.02) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(0, 245, 212, 0.02) 1px, transparent 1px);
-    }
-    .light .bg-grid {
-      background-image: 
-        linear-gradient(to right, rgba(13, 148, 136, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(13, 148, 136, 0.03) 1px, transparent 1px);
     }
     .glow-effect {
       box-shadow: 0 0 20px rgba(0, 245, 212, 0.15);
@@ -80,27 +80,27 @@
     }
   </style>
 </head>
-<body class="bg-brandDark text-slate-300 dark:bg-brandDark transition-colors duration-300 font-sans min-h-screen relative overflow-x-hidden bg-grid">
+<body class="bg-slate-50 text-slate-800 dark:bg-brandDark dark:text-slate-300 transition-colors duration-300 font-sans min-h-screen relative overflow-x-hidden bg-grid">
 
-  <!-- Glow Spotlights -->
-  <div class="absolute top-0 left-1/4 w-96 h-96 bg-accentTeal/10 rounded-full blur-[100px] pointer-events-none"></div>
-  <div class="absolute bottom-20 right-1/4 w-96 h-96 bg-accentTeal/5 rounded-full blur-[100px] pointer-events-none"></div>
+  <!-- Glow Spotlights (Only visible in dark mode) -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-accentTeal/5 dark:bg-accentTeal/10 rounded-full blur-[100px] pointer-events-none"></div>
+  <div class="absolute bottom-20 right-1/4 w-96 h-96 bg-accentTeal/3 dark:bg-accentTeal/5 rounded-full blur-[100px] pointer-events-none"></div>
 
   <!-- Header & Navigation -->
-  <header class="sticky top-0 z-40 w-full backdrop-blur-md border-b border-brandDarkBorder/50 bg-brandDark/85 dark:bg-brandDark/85 transition-colors duration-300">
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md border-b border-slate-200 dark:border-brandDarkBorder/50 bg-white/80 dark:bg-brandDark/85 transition-colors duration-300">
     <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-      <a href="#" class="font-mono text-xl font-bold tracking-tight text-accentTeal hover:opacity-85 transition-opacity">
-        <span class="text-slate-500">&lt;</span>dh<span class="text-slate-500">_ /&gt;</span>
+      <a href="#" class="font-mono text-xl font-bold tracking-tight text-teal-600 dark:text-accentTeal hover:opacity-85 transition-opacity">
+        <span class="text-slate-400 dark:text-slate-500">&lt;</span>dh<span class="text-slate-400 dark:text-slate-500">_ /&gt;</span>
       </a>
 
       <nav class="flex items-center space-x-6">
-        <a href="#about" class="text-sm font-medium hover:text-accentTeal transition-colors">Profile</a>
-        <a href="#skills" class="text-sm font-medium hover:text-accentTeal transition-colors">Skills</a>
-        <a href="#projects" class="text-sm font-medium hover:text-accentTeal transition-colors">Projects</a>
-        <a href="#publications" class="text-sm font-medium hover:text-accentTeal transition-colors">Publications</a>
+        <a href="#about" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Profile</a>
+        <a href="#skills" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Skills</a>
+        <a href="#projects" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Projects</a>
+        <a href="#publications" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Publications</a>
         
         <!-- Theme Switcher -->
-        <button id="theme-toggle" type="button" class="text-slate-400 hover:text-accentTeal focus:outline-none text-sm p-2 rounded-lg transition-colors border border-brandDarkBorder" aria-label="Toggle dark/light theme">
+        <button id="theme-toggle" type="button" class="text-slate-500 hover:text-teal-600 dark:text-slate-400 dark:hover:text-accentTeal focus:outline-none text-sm p-2 rounded-lg transition-colors border border-slate-200 dark:border-brandDarkBorder" aria-label="Toggle dark/light theme">
           <i id="theme-toggle-dark-icon" class="fa-solid fa-moon"></i>
           <i id="theme-toggle-light-icon" class="fa-solid fa-sun hidden"></i>
         </button>
@@ -115,46 +115,46 @@
       <div class="flex flex-col-reverse md:flex-row items-center md:items-start justify-between gap-8 md:gap-12">
         <div class="space-y-6 flex-1 text-center md:text-left">
           <div class="space-y-2">
-            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-accentTeal/20 bg-accentTeal/5 text-accentTeal font-mono text-xs uppercase tracking-wider mb-2">
-              <span class="h-2 w-2 rounded-full bg-accentTeal animate-pulse"></span>
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5 text-teal-700 dark:text-accentTeal font-mono text-xs uppercase tracking-wider mb-2">
+              <span class="h-2 w-2 rounded-full bg-teal-600 dark:bg-accentTeal animate-pulse"></span>
               <span>Available for collaborations</span>
             </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white transition-colors duration-300">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white transition-colors duration-300">
               Dr. Diego Halabi
             </h1>
-            <p class="text-lg md:text-xl font-mono text-accentTeal font-semibold">
+            <p class="text-lg md:text-xl font-mono text-teal-600 dark:text-accentTeal font-semibold">
               DDS, PhD in Medical Sciences
             </p>
-            <p class="text-slate-400 text-sm md:text-base max-w-xl">
-              Head of the Department of Dentistry <span class="text-slate-600">|</span> Universidad Austral de Chile.
+            <p class="text-slate-650 dark:text-slate-400 text-sm md:text-base max-w-xl">
+              Head of the Department of Dentistry <span class="text-slate-300 dark:text-slate-650">|</span> Universidad Austral de Chile.
             </p>
           </div>
 
           <!-- Social Icons -->
           <div class="flex justify-center md:justify-start items-center gap-4">
-            <a href="mailto:diego.halabi@uach.cl" class="group flex items-center justify-center w-10 h-10 rounded-lg bg-brandDarkCard border border-brandDarkBorder hover:border-accentTeal text-slate-400 hover:text-accentTeal transition-all hover:-translate-y-0.5 shadow-md shadow-brandDark" title="Email Address">
+            <a href="mailto:diego.halabi@uach.cl" class="group flex items-center justify-center w-10 h-10 rounded-lg bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder hover:border-teal-600 dark:hover:border-accentTeal text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-accentTeal transition-all hover:-translate-y-0.5 shadow-sm" title="Email Address">
               <i class="fa-solid fa-envelope"></i>
             </a>
-            <a href="https://scholar.google.com/scholar?q=Diego+Halabi" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-10 h-10 rounded-lg bg-brandDarkCard border border-brandDarkBorder hover:border-accentTeal text-slate-400 hover:text-accentTeal transition-all hover:-translate-y-0.5 shadow-md shadow-brandDark" title="Google Scholar">
+            <a href="https://scholar.google.com/scholar?q=Diego+Halabi" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-10 h-10 rounded-lg bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder hover:border-teal-600 dark:hover:border-accentTeal text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-accentTeal transition-all hover:-translate-y-0.5 shadow-sm" title="Google Scholar">
               <i class="fa-solid fa-graduation-cap"></i>
             </a>
-            <a href="https://github.com/diegohalabi" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-10 h-10 rounded-lg bg-brandDarkCard border border-brandDarkBorder hover:border-accentTeal text-slate-400 hover:text-accentTeal transition-all hover:-translate-y-0.5 shadow-md shadow-brandDark" title="GitHub Profile">
+            <a href="https://github.com/diegohalabi" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-10 h-10 rounded-lg bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder hover:border-teal-600 dark:hover:border-accentTeal text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-accentTeal transition-all hover:-translate-y-0.5 shadow-sm" title="GitHub Profile">
               <i class="fa-brands fa-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/diegohalabi" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-10 h-10 rounded-lg bg-brandDarkCard border border-brandDarkBorder hover:border-accentTeal text-slate-400 hover:text-accentTeal transition-all hover:-translate-y-0.5 shadow-md shadow-brandDark" title="LinkedIn Profile">
+            <a href="https://www.linkedin.com/in/diegohalabi" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-10 h-10 rounded-lg bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder hover:border-teal-600 dark:hover:border-accentTeal text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-accentTeal transition-all hover:-translate-y-0.5 shadow-sm" title="LinkedIn Profile">
               <i class="fa-brands fa-linkedin-in"></i>
             </a>
-            <a href="https://orcid.org/0000-0002-1474-8066" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-10 h-10 rounded-lg bg-brandDarkCard border border-brandDarkBorder hover:border-accentTeal text-slate-400 hover:text-accentTeal transition-all hover:-translate-y-0.5 shadow-md shadow-brandDark" title="ORCID Record">
-              <i class="fa-brands fa-orcid text-emerald-500 group-hover:text-accentTeal transition-colors"></i>
+            <a href="https://orcid.org/0000-0002-1474-8066" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-10 h-10 rounded-lg bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder hover:border-teal-600 dark:hover:border-accentTeal text-slate-500 dark:text-slate-400 hover:text-teal-600 dark:hover:text-accentTeal transition-all hover:-translate-y-0.5 shadow-sm" title="ORCID Record">
+              <i class="fa-brands fa-orcid text-emerald-600 dark:text-emerald-500 group-hover:text-teal-600 dark:group-hover:text-accentTeal transition-colors"></i>
             </a>
           </div>
         </div>
 
         <div class="relative group">
           <!-- Profile Pic Frame Glow -->
-          <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-accentTeal to-teal-500 opacity-40 group-hover:opacity-75 blur transition-opacity duration-300"></div>
+          <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-teal-600 to-teal-400 dark:from-accentTeal dark:to-teal-500 opacity-20 dark:opacity-40 group-hover:opacity-75 blur transition-opacity duration-300"></div>
           <!-- Profile Pic Container -->
-          <div class="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-brandDark bg-brandDarkCard shadow-xl">
+          <div class="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-white dark:border-brandDark bg-white dark:bg-brandDarkCard shadow-xl">
             <img src="./myself.jpg" alt="Dr. Diego Halabi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/200?text=Diego+Halabi'">
           </div>
         </div>
@@ -164,17 +164,17 @@
     <!-- Professional Profile Section -->
     <section class="space-y-6">
       <div class="flex items-center space-x-4">
-        <h2 class="text-2xl font-bold tracking-tight text-white font-mono flex items-center">
-          <span class="text-accentTeal mr-2">01.</span>profile.sh
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
+          <span class="text-teal-650 dark:text-accentTeal mr-2">01.</span>profile.sh
         </h2>
-        <div class="h-[1px] bg-brandDarkBorder flex-1"></div>
+        <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
       
-      <div class="bg-brandDarkCard border border-brandDarkBorder rounded-xl p-6 md:p-8 relative overflow-hidden shadow-lg hover:shadow-accentTeal/5 transition-shadow">
+      <div class="bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder rounded-xl p-6 md:p-8 relative overflow-hidden shadow-sm dark:shadow-lg dark:hover:shadow-accentTeal/5 transition-shadow">
         <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-          <i class="fa-solid fa-terminal text-8xl text-accentTeal"></i>
+          <i class="fa-solid fa-terminal text-8xl text-teal-650 dark:text-accentTeal"></i>
         </div>
-        <div class="prose prose-invert max-w-none text-slate-350 leading-relaxed font-sans text-sm md:text-base space-y-4">
+        <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-350 leading-relaxed font-sans text-sm md:text-base space-y-4">
           <p>
             With a multidisciplinary profile integrating translational research, clinical epidemiology, institutional leadership, and technological innovation. As Director of the Department of Dentistry, I lead academic and clinical management backed by a solid research trajectory in chronobiology and systemic health.
           </p>
@@ -188,16 +188,16 @@
     <!-- Tech Stack & Infrastructure Section -->
     <section id="skills" class="space-y-6">
       <div class="flex items-center space-x-4">
-        <h2 class="text-2xl font-bold tracking-tight text-white font-mono flex items-center">
-          <span class="text-accentTeal mr-2">02.</span>infrastructure_stack
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
+          <span class="text-teal-650 dark:text-accentTeal mr-2">02.</span>infrastructure_stack
         </h2>
-        <div class="h-[1px] bg-brandDarkBorder flex-1"></div>
+        <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
 
-      <!-- Hacker Terminal Skills Display -->
-      <div class="bg-brandDarkCard border border-brandDarkBorder rounded-xl overflow-hidden shadow-2xl">
+      <!-- Hacker Terminal Skills Display (Always dark for terminal authenticity) -->
+      <div class="bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder rounded-xl overflow-hidden shadow-2xl">
         <!-- Terminal Header -->
-        <div class="bg-brandDark/80 border-b border-brandDarkBorder/60 px-4 py-3 flex items-center justify-between">
+        <div class="bg-brandDark/85 border-b border-brandDarkBorder/60 px-4 py-3 flex items-center justify-between">
           <div class="flex items-center space-x-2">
             <span class="w-3.5 h-3.5 rounded-full bg-rose-500/80 inline-block border border-rose-600/30"></span>
             <span class="w-3.5 h-3.5 rounded-full bg-amber-500/80 inline-block border border-amber-600/30"></span>
@@ -216,7 +216,7 @@
               <span class="text-slate-500 mr-2">$</span>
               <span>cat software_dev.txt</span>
             </div>
-            <div class="mt-2 pl-4 text-slate-300 flex flex-wrap gap-2">
+            <div class="mt-2 pl-4 text-slate-350 flex flex-wrap gap-2">
               <span class="px-2 py-0.5 rounded border border-brandDarkBorder bg-brandDark/40 text-xs">Python</span>
               <span class="px-2 py-0.5 rounded border border-brandDarkBorder bg-brandDark/40 text-xs">FastAPI</span>
               <span class="px-2 py-0.5 rounded border border-brandDarkBorder bg-brandDark/40 text-xs">CustomTkinter</span>
@@ -230,7 +230,7 @@
               <span class="text-slate-500 mr-2">$</span>
               <span>cat infrastructure.txt</span>
             </div>
-            <div class="mt-2 pl-4 text-slate-300 flex flex-wrap gap-2">
+            <div class="mt-2 pl-4 text-slate-350 flex flex-wrap gap-2">
               <span class="px-2 py-0.5 rounded border border-brandDarkBorder bg-brandDark/40 text-xs">Linux (Arch Linux)</span>
               <span class="px-2 py-0.5 rounded border border-brandDarkBorder bg-brandDark/40 text-xs">Headless Servers</span>
               <span class="px-2 py-0.5 rounded border border-brandDarkBorder bg-brandDark/40 text-xs">CI/CD</span>
@@ -243,7 +243,7 @@
               <span class="text-slate-500 mr-2">$</span>
               <span>cat data_science_research.txt</span>
             </div>
-            <div class="mt-2 pl-4 text-slate-300 flex flex-wrap gap-2">
+            <div class="mt-2 pl-4 text-slate-350 flex flex-wrap gap-2">
               <span class="px-2 py-0.5 rounded border border-brandDarkBorder bg-brandDark/40 text-xs">R (tidyverse)</span>
               <span class="px-2 py-0.5 rounded border border-brandDarkBorder bg-brandDark/40 text-xs">Statistical Modeling</span>
               <span class="px-2 py-0.5 rounded border border-brandDarkBorder bg-brandDark/40 text-xs">LaTeX</span>
@@ -264,56 +264,56 @@
     <!-- Product Development & Clinical Solutions Section -->
     <section id="projects" class="space-y-6">
       <div class="flex items-center space-x-4">
-        <h2 class="text-2xl font-bold tracking-tight text-white font-mono flex items-center">
-          <span class="text-accentTeal mr-2">03.</span>clinical_solutions
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
+          <span class="text-teal-650 dark:text-accentTeal mr-2">03.</span>clinical_solutions
         </h2>
-        <div class="h-[1px] bg-brandDarkBorder flex-1"></div>
+        <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Project 1 -->
-        <article class="bg-brandDarkCard border border-brandDarkBorder hover:border-accentTeal/30 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-accentTeal/5 transition-all duration-300 hover:-translate-y-1 group">
+        <article class="bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder hover:border-teal-600/30 dark:hover:border-accentTeal/30 rounded-xl p-6 flex flex-col justify-between shadow-sm dark:shadow-lg dark:hover:shadow-accentTeal/5 transition-all duration-300 hover:-translate-y-1 group">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <div class="text-accentTeal text-xl">
+              <div class="text-teal-600 dark:text-accentTeal text-xl">
                 <i class="fa-solid fa-square-poll-vertical"></i>
               </div>
-              <span class="font-mono text-xs text-slate-500">v1.2.0</span>
+              <span class="font-mono text-xs text-slate-400 dark:text-slate-500">v1.2.0</span>
             </div>
             <div class="space-y-2">
-              <h3 class="text-lg font-bold text-white group-hover:text-accentTeal transition-colors">EvaLumina</h3>
-              <p class="text-slate-400 text-sm leading-relaxed">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-accentTeal transition-colors">EvaLumina</h3>
+              <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                 Multiplatform Automated Evaluation System with Optical Mark Recognition (OMR) and Local Algorithmic Validation (Developed in Python).
               </p>
             </div>
           </div>
           <div class="mt-6 flex flex-wrap gap-1.5 font-mono text-xs">
-            <span class="px-2 py-0.5 bg-brandDark border border-brandDarkBorder/60 rounded text-slate-400">Python</span>
-            <span class="px-2 py-0.5 bg-brandDark border border-brandDarkBorder/60 rounded text-slate-400">OMR</span>
-            <span class="px-2 py-0.5 bg-brandDark border border-brandDarkBorder/60 rounded text-slate-400">EdTech</span>
+            <span class="px-2 py-0.5 bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder/60 rounded text-slate-600 dark:text-slate-400">Python</span>
+            <span class="px-2 py-0.5 bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder/60 rounded text-slate-600 dark:text-slate-400">OMR</span>
+            <span class="px-2 py-0.5 bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder/60 rounded text-slate-600 dark:text-slate-400">EdTech</span>
           </div>
         </article>
 
         <!-- Project 2 -->
-        <article class="bg-brandDarkCard border border-brandDarkBorder hover:border-accentTeal/30 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-accentTeal/5 transition-all duration-300 hover:-translate-y-1 group">
+        <article class="bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder hover:border-teal-600/30 dark:hover:border-accentTeal/30 rounded-xl p-6 flex flex-col justify-between shadow-sm dark:shadow-lg dark:hover:shadow-accentTeal/5 transition-all duration-300 hover:-translate-y-1 group">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <div class="text-accentTeal text-xl">
+              <div class="text-teal-600 dark:text-accentTeal text-xl">
                 <i class="fa-solid fa-briefcase-medical"></i>
               </div>
-              <span class="font-mono text-xs text-slate-500">MVP</span>
+              <span class="font-mono text-xs text-slate-400 dark:text-slate-500">MVP</span>
             </div>
             <div class="space-y-2">
-              <h3 class="text-lg font-bold text-white group-hover:text-accentTeal transition-colors">Clinical Sterilization Platform</h3>
-              <p class="text-slate-400 text-sm leading-relaxed">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-accentTeal transition-colors">Clinical Sterilization Platform</h3>
+              <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                 MVP for the comprehensive management of the clinical sterilization center, autonomously deployed on local headless Linux infrastructure.
               </p>
             </div>
           </div>
           <div class="mt-6 flex flex-wrap gap-1.5 font-mono text-xs">
-            <span class="px-2 py-0.5 bg-brandDark border border-brandDarkBorder/60 rounded text-slate-400">Linux</span>
-            <span class="px-2 py-0.5 bg-brandDark border border-brandDarkBorder/60 rounded text-slate-400">Bash</span>
-            <span class="px-2 py-0.5 bg-brandDark border border-brandDarkBorder/60 rounded text-slate-400">Management</span>
+            <span class="px-2 py-0.5 bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder/60 rounded text-slate-600 dark:text-slate-400">Linux</span>
+            <span class="px-2 py-0.5 bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder/60 rounded text-slate-600 dark:text-slate-400">Bash</span>
+            <span class="px-2 py-0.5 bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder/60 rounded text-slate-600 dark:text-slate-400">Management</span>
           </div>
         </article>
       </div>
@@ -322,35 +322,35 @@
     <!-- Scientific Publications (Reactive Section) -->
     <section id="publications" class="space-y-6">
       <div class="flex items-center space-x-4">
-        <h2 class="text-2xl font-bold tracking-tight text-white font-mono flex items-center">
-          <span class="text-accentTeal mr-2">04.</span>publications.json
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
+          <span class="text-teal-650 dark:text-accentTeal mr-2">04.</span>publications.json
         </h2>
-        <div class="h-[1px] bg-brandDarkBorder flex-1"></div>
+        <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
 
       <!-- Interactive Search / Filter Bar -->
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 bg-brandDarkCard/65 p-4 rounded-xl border border-brandDarkBorder shadow-md">
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder p-4 rounded-xl shadow-sm">
         <div class="relative flex-1">
-          <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-450 dark:text-slate-550">
             <i class="fa-solid fa-magnifying-glass text-xs"></i>
           </span>
-          <input id="search-input" type="text" placeholder="Search by title, authors, or journal..." class="w-full pl-9 pr-4 py-2 text-sm bg-brandDark border border-brandDarkBorder rounded-lg focus:outline-none focus:border-accentTeal text-white placeholder-slate-500 font-mono transition-colors">
+          <input id="search-input" type="text" placeholder="Search by title, authors, or journal..." class="w-full pl-9 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 dark:bg-brandDark dark:border-brandDarkBorder rounded-lg focus:outline-none focus:border-teal-500 dark:focus:border-accentTeal text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-550 font-mono transition-colors">
         </div>
         
         <div class="flex items-center gap-2">
-          <label for="year-select" class="text-xs font-mono text-slate-500 uppercase tracking-wider">Filter Year:</label>
-          <select id="year-select" class="bg-brandDark border border-brandDarkBorder rounded-lg px-3 py-1.5 text-sm font-mono text-slate-300 focus:outline-none focus:border-accentTeal">
+          <label for="year-select" class="text-xs font-mono text-slate-500 dark:text-slate-500 uppercase tracking-wider">Filter Year:</label>
+          <select id="year-select" class="bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder rounded-lg px-3 py-1.5 text-sm font-mono text-slate-700 dark:text-slate-300 focus:outline-none focus:border-teal-500 dark:focus:border-accentTeal transition-colors">
             <option value="all">ALL YEARS</option>
           </select>
         </div>
       </div>
 
       <!-- Publications Feed -->
-      <div class="relative bg-brandDarkCard border border-brandDarkBorder rounded-xl overflow-hidden shadow-lg">
+      <div class="relative bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder rounded-xl overflow-hidden shadow-sm dark:shadow-lg">
         
         <!-- Status Indicator / Info -->
-        <div class="bg-brandDark/50 border-b border-brandDarkBorder/60 px-4 py-2.5 flex justify-between items-center text-xs font-mono">
-          <div class="flex items-center space-x-2 text-slate-500">
+        <div class="bg-slate-50 dark:bg-brandDark/50 border-b border-slate-200 dark:border-brandDarkBorder/60 px-4 py-2.5 flex justify-between items-center text-xs font-mono">
+          <div id="status-indicator" class="flex items-center space-x-2 text-slate-500">
             <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
             <span>Local Cache Active</span>
           </div>
@@ -358,24 +358,24 @@
         </div>
 
         <!-- Inner Content Area -->
-        <div class="divide-y divide-brandDarkBorder" id="publications-container">
+        <div class="divide-y divide-slate-200 dark:divide-brandDarkBorder" id="publications-container">
           
           <!-- Loading State (Skeleton) -->
           <div class="p-6 space-y-4 animate-pulse" id="loading-state">
             <div class="flex items-center justify-between">
-              <div class="h-4 bg-slate-700/50 rounded w-1/4"></div>
-              <div class="h-4 bg-slate-700/50 rounded w-1/12"></div>
+              <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-1/4"></div>
+              <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-1/12"></div>
             </div>
-            <div class="h-5 bg-slate-700/50 rounded w-11/12"></div>
-            <div class="h-4 bg-slate-700/50 rounded w-2/3"></div>
-            <div class="h-3 bg-slate-700/50 rounded w-1/2"></div>
+            <div class="h-5 bg-slate-200 dark:bg-slate-700/50 rounded w-11/12"></div>
+            <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-2/3"></div>
+            <div class="h-3 bg-slate-200 dark:bg-slate-700/50 rounded w-1/2"></div>
           </div>
           
         </div>
 
         <!-- Pagination / Show More Controls -->
-        <div id="pagination-controls" class="hidden p-4 bg-brandDark/50 border-t border-brandDarkBorder text-center">
-          <button id="btn-show-more" class="px-4 py-2 text-xs font-mono font-semibold uppercase tracking-wider text-slate-400 hover:text-accentTeal border border-brandDarkBorder hover:border-accentTeal/40 rounded-lg bg-brandDarkCard hover:bg-accentTeal/5 transition-all">
+        <div id="pagination-controls" class="hidden p-4 bg-slate-50 dark:bg-brandDark/50 border-t border-slate-200 dark:border-brandDarkBorder text-center">
+          <button id="btn-show-more" class="px-4 py-2 text-xs font-mono font-semibold uppercase tracking-wider text-slate-650 hover:text-teal-600 dark:text-slate-400 dark:hover:text-accentTeal border border-slate-200 dark:border-brandDarkBorder hover:border-teal-500/40 dark:hover:border-accentTeal/40 rounded-lg bg-white dark:bg-brandDarkCard hover:bg-teal-50/50 dark:hover:bg-accentTeal/5 transition-all">
             Show More Publications <i class="fa-solid fa-angle-down ml-1"></i>
           </button>
         </div>
@@ -384,8 +384,8 @@
 
       <!-- Action Button -->
       <div class="flex justify-center pt-2">
-        <a href="https://orcid.org/0000-0002-1474-8066" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center space-x-2 px-5 py-2.5 bg-brandDark border border-brandDarkBorder hover:border-accentTeal text-slate-350 hover:text-accentTeal font-mono text-sm rounded-lg transition-all hover:shadow-lg hover:shadow-accentTeal/5">
-          <i class="fa-brands fa-orcid text-emerald-500"></i>
+        <a href="https://orcid.org/0000-0002-1474-8066" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center space-x-2 px-5 py-2.5 bg-white dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder hover:border-teal-600 dark:hover:border-accentTeal text-slate-600 dark:text-slate-350 hover:text-teal-600 dark:hover:text-accentTeal font-mono text-sm rounded-lg transition-all hover:shadow-sm dark:hover:shadow-accentTeal/5">
+          <i class="fa-brands fa-orcid text-emerald-600 dark:text-emerald-500"></i>
           <span>View Full Profile on ORCID</span>
           <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
         </a>
@@ -394,12 +394,12 @@
 
   </main>
 
-  <footer class="border-t border-brandDarkBorder/50 py-8 mt-20 relative z-10 text-center text-xs font-mono text-slate-650">
+  <footer class="border-t border-slate-200 dark:border-brandDarkBorder/50 py-8 mt-20 relative z-10 text-center text-xs font-mono text-slate-500 dark:text-slate-600">
     <div class="max-w-4xl mx-auto px-4 space-y-3">
       <p>
         &copy; 2026 Dr. Diego Halabi. Built with static simplicity.
       </p>
-      <p class="text-slate-600">
+      <p class="text-slate-450 dark:text-slate-600">
         Hosted on GitHub Pages &bull; Integrated via ORCID API CI/CD &bull; Deployed on Vercel
       </p>
     </div>
@@ -456,7 +456,55 @@
     });
 
     // -------------------------------------------------------------
-    // 2. Asynchronous Publication Fetching & Reactive System
+    // 2. High-fidelity Fallback Publications (for file:// protocol CORS bypass)
+    // -------------------------------------------------------------
+    const localFallbackPublications = [
+      {
+        "title": "Prognostic Value of Neutrophil-to-Lymphocyte Ratio and Tumor-Infiltrating Lymphocytes (TILs), for Patients with Triple-Negative Breast Cancer",
+        "authors": "Soto, Marcela, Poblete, Maria Teresa, Ehrenfeld, Pamela, Halabi, Diego",
+        "journal": "Cancer Investigation",
+        "year": "2026",
+        "link": "https://doi.org/10.1080/07357907.2025.2612595"
+      },
+      {
+        "title": "Sex-Specific Metabolic Effects of Gestational Chronodisruption and Maternal Melatonin Supplementation in Rat Offspring",
+        "authors": "Mendez, Natalia, Corvalan, Fernando, Halabi, Diego, Vasquez, Abigail, Vergara, Karina, Noriega, Hector, Ehrenfeld, Pamela, Sanhueza, Katiushka, Seron-Ferre, Maria, Valenzuela, Guillermo J., Torres-Farfan, Claudia",
+        "journal": "Journal of Pineal Research",
+        "year": "2024",
+        "link": "https://doi.org/10.1111/JPI.70015"
+      },
+      {
+        "title": "Difference in Receptor Activator of Nuclear Factor k B Expression in Tumoral Tissue by Different Periodontal Pathogens",
+        "authors": "Maher, Anushiravan, Munoz, David Nicolas, Pavicic, Maria Francisca, Gonzalez, Mario, Ehrenfeld, Pamela, Halabi, Diego, Munoz-Kramm, Alejandra, Munoz, Helmuth",
+        "journal": "International Journal of Morphology",
+        "year": "2023",
+        "link": "https://publons.com/wos-op/publon/61677396/"
+      },
+      {
+        "title": "From gestational chronodisruption to noncommunicable diseases: Pathophysiological mechanisms of programming of adult diseases, and the potential therapeutic role of melatonin",
+        "authors": "Mendez, Natalia, Corvalan, Fernando, Halabi, Diego, Ehrenfeld, Pamela, Maldonado, Rodrigo, Vergara, Karina, Seron-Ferre, Maria, Torres-Farfan, Claudia",
+        "journal": "Journal of Pineal Research",
+        "year": "2023",
+        "link": "https://doi.org/10.1111/JPI.12908"
+      },
+      {
+        "title": "Effects of exercise on irisin in subjects with overweight or obesity. A systematic review of clinical studies",
+        "authors": "Bernal-Rivas, Camila, Llamunao-Tropa, Angela, Reyes-Barria, Andres, Halabi, Diego, Pavicic, Francisca, Ehrenfeld, Pamela, Martinez-Huenchullan, Sergio",
+        "journal": "Nutrición Hospitalaria",
+        "year": "2022",
+        "link": "https://doi.org/10.20960/NH.04202"
+      },
+      {
+        "title": "Maternal melatonin treatment rescues endocrine, cardiovascular, and metabolic programming in offspring of gestational chronodisruption",
+        "authors": "Mendez, Natalia, Corvalán, Fernando, Halabi, Diego, Ehrenfeld, Pamela, Spichiger Bruce, Carlos, Richter, Hans G., Serón-Ferré, María, Torres-Farfán, Claudia",
+        "journal": "Frontiers in Endocrinology",
+        "year": "2022",
+        "link": "https://doi.org/10.3389/fendo.2022.990422"
+      }
+    ];
+
+    // -------------------------------------------------------------
+    // 3. Asynchronous Publication Fetching & Reactive System
     // -------------------------------------------------------------
     let allPublications = [];
     let displayedPublications = [];
@@ -480,22 +528,41 @@
           throw new Error('Failed to load local publications data');
         }
         allPublications = await response.json();
-        
-        // Populate years in drop-down list
-        populateYearsDropdown();
-        
-        // Render publications
-        filterAndRender();
       } catch (error) {
-        console.error(error);
-        container.innerHTML = `
-          <div class="p-6 text-center text-slate-500 font-mono text-sm">
-            <i class="fa-solid fa-circle-exclamation text-rose-500 text-lg mb-2 block"></i>
-            Failed to load scientific publications. <br>
-            <span class="text-xs text-slate-600 mt-1 block">Please view my profile directly on ORCID.</span>
-          </div>
-        `;
+        console.warn('Fetch failed, checking for local protocol fallback:', error);
+        
+        // Check if opened via file:// protocol
+        if (window.location.protocol === 'file:') {
+          allPublications = localFallbackPublications;
+          console.log('Loaded from local fallback due to file:// CORS restrictions');
+          
+          // Show badge alerting user that it is using local fallback data
+          const statusIndicator = document.getElementById('status-indicator');
+          if (statusIndicator) {
+             statusIndicator.innerHTML = `
+               <span class="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+               <span>Local File Fallback Mode (Open via Web Server or deploy to see live ORCID updates)</span>
+             `;
+             statusIndicator.classList.remove('text-slate-500');
+             statusIndicator.classList.add('text-amber-600', 'dark:text-amber-500');
+          }
+        } else {
+          container.innerHTML = `
+            <div class="p-6 text-center text-slate-500 font-mono text-sm">
+              <i class="fa-solid fa-circle-exclamation text-rose-500 text-lg mb-2 block"></i>
+              Failed to load scientific publications. <br>
+              <span class="text-xs text-slate-500 mt-1 block">Please view my profile directly on ORCID.</span>
+            </div>
+          `;
+          return;
+        }
       }
+      
+      // Populate years in drop-down list
+      populateYearsDropdown();
+      
+      // Render publications
+      filterAndRender();
     }
 
     function populateYearsDropdown() {
@@ -503,6 +570,9 @@
       const years = [...new Set(allPublications.map(p => p.year))]
         .filter(y => y && y !== 'N/A')
         .sort((a, b) => parseInt(b) - parseInt(a));
+      
+      // Clear previous options except the first one
+      yearSelect.innerHTML = '<option value="all">ALL YEARS</option>';
       
       years.forEach(year => {
         const option = document.createElement('option');
@@ -540,7 +610,7 @@
       if (displayedPublications.length === 0) {
         container.innerHTML = `
           <div class="p-8 text-center text-slate-500 font-mono text-sm">
-            <i class="fa-solid fa-folder-open text-slate-600 text-lg mb-2 block"></i>
+            <i class="fa-solid fa-folder-open text-slate-650 dark:text-slate-600 text-lg mb-2 block"></i>
             No publications found matching your criteria.
           </div>
         `;
@@ -563,34 +633,34 @@
         const doiText = doiMatch ? doiMatch[1] : null;
 
         return `
-          <div class="p-6 hover:bg-slate-900/30 dark:hover:bg-slate-900/30 hover:bg-slate-100/50 light:hover:bg-slate-100/50 transition-colors duration-250 flex flex-col sm:flex-row items-start justify-between gap-4">
+          <div class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-250 flex flex-col sm:flex-row items-start justify-between gap-4">
             <div class="space-y-2 flex-1">
               <div class="flex items-center space-x-2">
-                <span class="text-xs font-mono text-accentTeal font-bold px-1.5 py-0.5 rounded border border-accentTeal/20 bg-accentTeal/5">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">
                   ${pub.year}
                 </span>
-                <span class="text-xs font-mono text-slate-500">
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">
                   #${idx + 1}
                 </span>
               </div>
-              <h4 class="text-base font-bold text-white transition-colors">
+              <h4 class="text-base font-bold text-slate-900 dark:text-white transition-colors">
                 ${pub.title}
               </h4>
-              <p class="text-xs text-slate-400 font-sans leading-relaxed">
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
                 ${pub.authors}
               </p>
-              <p class="text-xs font-mono text-slate-500 italic">
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-500 italic">
                 ${pub.journal}
               </p>
             </div>
             
             <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
-              <a href="${pub.link}" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-900 border border-brandDarkBorder hover:border-accentTeal text-slate-450 hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" title="Open Publication Link">
+              <a href="${pub.link}" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-150 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" title="Open Publication Link">
                 <span>View Paper</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
               </a>
               ${doiText ? `
-                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-600 truncate max-w-[140px]" title="DOI: ${doiText}">
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-600 truncate max-w-[140px]" title="DOI: ${doiText}">
                   DOI: ${doiText}
                 </span>
               ` : ''}
