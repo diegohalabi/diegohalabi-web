@@ -38,13 +38,13 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/publications.json
+          git add data/
           
           # Check if there are changes staged
           if git diff --staged --quiet; then
-            echo "No updates to publications.json detected."
+            echo "No updates to publications or grants detected."
           else
             echo "Updates detected. Committing and pushing changes..."
-            git commit -m "chore: auto-sync publications from ORCID [skip ci]"
+            git commit -m "chore: auto-sync publications and grants from ORCID [skip ci]"
             git push
           fi
