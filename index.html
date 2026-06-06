@@ -96,10 +96,10 @@
       <nav class="flex items-center space-x-6">
         <a href="#about" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Profile</a>
         <a href="#research" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Research</a>
-        <a href="#grants" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Grants</a>
         <a href="#skills" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Skills</a>
         <a href="#projects" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Projects</a>
         <a href="#publications" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Publications</a>
+        <a href="#grants" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Grants</a>
         
         <!-- Theme Switcher -->
         <button id="theme-toggle" type="button" class="text-slate-500 hover:text-teal-600 dark:text-slate-400 dark:hover:text-accentTeal focus:outline-none text-sm p-2 rounded-lg transition-colors border border-slate-200 dark:border-brandDarkBorder" aria-label="Toggle dark/light theme">
@@ -265,48 +265,11 @@
       </div>
     </section>
 
-    <!-- Research Grants & Funding Section -->
-    <section id="grants" class="space-y-6">
-      <div class="flex items-center space-x-4">
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
-          <span class="text-teal-600 dark:text-accentTeal mr-2">03.</span>funding_grants.json
-        </h2>
-        <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
-      </div>
-
-      <!-- Grants Feed Container -->
-      <div class="bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder rounded-xl overflow-hidden shadow-sm dark:shadow-lg">
-        
-        <!-- Status bar -->
-        <div class="bg-slate-50 dark:bg-brandDark/50 border-b border-slate-200 dark:border-brandDarkBorder/60 px-4 py-2.5 flex justify-between items-center text-xs font-mono">
-          <div class="flex items-center space-x-2 text-slate-500">
-            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-            <span>External API Connection Active</span>
-          </div>
-          <span class="text-slate-500 dark:text-slate-500">Research Funding</span>
-        </div>
-
-        <!-- Render list -->
-        <div class="divide-y divide-slate-200 dark:divide-brandDarkBorder" id="grants-container">
-          <!-- Loading State (Skeleton) -->
-          <div class="p-6 space-y-4 animate-pulse">
-            <div class="flex items-center justify-between">
-              <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-1/4"></div>
-              <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-1/12"></div>
-            </div>
-            <div class="h-5 bg-slate-200 dark:bg-slate-700/50 rounded w-11/12"></div>
-            <div class="h-3 bg-slate-200 dark:bg-slate-700/50 rounded w-1/2"></div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
     <!-- Tech Stack & Infrastructure Section -->
     <section id="skills" class="space-y-6">
       <div class="flex items-center space-x-4">
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
-          <span class="text-teal-600 dark:text-accentTeal mr-2">04.</span>infrastructure_stack
+          <span class="text-teal-600 dark:text-accentTeal mr-2">03.</span>infrastructure_stack
         </h2>
         <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
@@ -382,7 +345,7 @@
     <section id="projects" class="space-y-6">
       <div class="flex items-center space-x-4">
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
-          <span class="text-teal-600 dark:text-accentTeal mr-2">05.</span>clinical_solutions
+          <span class="text-teal-600 dark:text-accentTeal mr-2">04.</span>clinical_solutions
         </h2>
         <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
@@ -440,7 +403,7 @@
     <section id="publications" class="space-y-6">
       <div class="flex items-center space-x-4">
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
-          <span class="text-teal-600 dark:text-accentTeal mr-2">06.</span>publications.json
+          <span class="text-teal-600 dark:text-accentTeal mr-2">05.</span>publications.json
         </h2>
         <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
@@ -506,6 +469,43 @@
           <span>View Full Profile on ORCID</span>
           <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
         </a>
+      </div>
+    </section>
+
+    <!-- Research Grants & Funding Section -->
+    <section id="grants" class="space-y-6">
+      <div class="flex items-center space-x-4">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
+          <span class="text-teal-600 dark:text-accentTeal mr-2">06.</span>funding_grants.json
+        </h2>
+        <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
+      </div>
+
+      <!-- Grants Feed Container -->
+      <div class="bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder rounded-xl overflow-hidden shadow-sm dark:shadow-lg">
+        
+        <!-- Status bar -->
+        <div class="bg-slate-50 dark:bg-brandDark/50 border-b border-slate-200 dark:border-brandDarkBorder/60 px-4 py-2.5 flex justify-between items-center text-xs font-mono">
+          <div class="flex items-center space-x-2 text-slate-500">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+            <span>External API Connection Active</span>
+          </div>
+          <span class="text-slate-500 dark:text-slate-500">Research Funding</span>
+        </div>
+
+        <!-- Render list -->
+        <div class="divide-y divide-slate-200 dark:divide-brandDarkBorder" id="grants-container">
+          <!-- Loading State (Skeleton) -->
+          <div class="p-6 space-y-4 animate-pulse">
+            <div class="flex items-center justify-between">
+              <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-1/4"></div>
+              <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-1/12"></div>
+            </div>
+            <div class="h-5 bg-slate-200 dark:bg-slate-700/50 rounded w-11/12"></div>
+            <div class="h-3 bg-slate-200 dark:bg-slate-700/50 rounded w-1/2"></div>
+          </div>
+        </div>
+
       </div>
     </section>
 
