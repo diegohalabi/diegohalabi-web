@@ -78,6 +78,15 @@
       background: #cbd5e1;
       border-radius: 4px;
     }
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
   </style>
   
   <!-- Vercel Analytics & Speed Insights -->
@@ -96,25 +105,30 @@
 
   <!-- Header & Navigation -->
   <header class="sticky top-0 z-40 w-full backdrop-blur-md border-b border-slate-200 dark:border-brandDarkBorder/50 bg-white/80 dark:bg-brandDark/85 transition-colors duration-300">
-    <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-      <a href="#" class="font-mono text-xl font-bold tracking-tight text-teal-600 dark:text-accentTeal hover:opacity-85 transition-opacity">
+    <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+      <a href="#" class="shrink-0 font-mono text-xl font-bold tracking-tight text-teal-600 dark:text-accentTeal hover:opacity-85 transition-opacity">
         <span class="text-slate-400 dark:text-slate-500">&lt;</span>dh<span class="text-slate-400 dark:text-slate-500">_ /&gt;</span>
       </a>
 
-      <nav class="flex items-center space-x-6">
-        <a href="#about" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Profile</a>
-        <a href="#research" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Research</a>
-        <a href="#skills" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Skills</a>
-        <a href="#projects" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Projects</a>
-        <a href="#publications" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Publications</a>
-        <a href="#grants" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors">Grants</a>
-        
-        <!-- Theme Switcher -->
+      <!-- Wrapper for mobile scrolling -->
+      <div class="flex-1 flex items-center justify-start sm:justify-end overflow-x-auto no-scrollbar scroll-smooth">
+        <nav class="flex items-center space-x-6 pr-2">
+          <a href="#about" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Profile</a>
+          <a href="#research" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Research</a>
+          <a href="#skills" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Skills</a>
+          <a href="#projects" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Projects</a>
+          <a href="#publications" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Publications</a>
+          <a href="#grants" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Grants</a>
+        </nav>
+      </div>
+
+      <!-- Theme Switcher kept separate so it is always accessible and doesn't scroll away -->
+      <div class="shrink-0">
         <button id="theme-toggle" type="button" class="text-slate-500 hover:text-teal-600 dark:text-slate-400 dark:hover:text-accentTeal focus:outline-none text-sm p-2 rounded-lg transition-colors border border-slate-200 dark:border-brandDarkBorder" aria-label="Toggle dark/light theme">
           <i id="theme-toggle-dark-icon" class="fa-solid fa-moon"></i>
           <i id="theme-toggle-light-icon" class="fa-solid fa-sun hidden"></i>
         </button>
-      </nav>
+      </div>
     </div>
   </header>
 
