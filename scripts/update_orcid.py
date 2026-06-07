@@ -27,6 +27,47 @@ def get_nested(d, *keys, default=None):
             return default
     return d if d is not None else default
 
+def format_author_name(name):
+    """Formats an author name to 'LastName Initials' format (e.g., 'Soto M', 'Poblete MT')."""
+    name = name.strip()
+    if not name:
+        return ''
+    
+    # Correct common spelling typos
+    if 'erhenfeld' in name.lower():
+        name = name.replace('Erhenfeld', 'Ehrenfeld').replace('erhenfeld', 'ehrenfeld')
+
+    # Case A: If name has a comma (standard ORCID format 'LastName, FirstName MiddleName')
+    if ',' in name:
+        parts = name.split(',')
+        last = parts[0].strip()
+        firsts = parts[1].strip()
+        firsts_clean = firsts.replace('.', ' ').replace('-', ' ')
+        subparts = [w.strip() for w in firsts_clean.split() if w.strip()]
+        initials = ''.join([w[0].upper() for w in subparts if w])
+        return f'{last} {initials}'
+    
+    # Case B: If no comma (Spanish names or regular First Last format)
+    words = [w.strip() for w in name.split() if w.strip()]
+    if not words:
+        return name
+    if len(words) == 1:
+        return words[0]
+    elif len(words) == 2:
+        # e.g., 'Diego Halabi' -> 'Halabi D'
+        return f'{words[1]} {words[0][0].upper()}'
+    elif len(words) == 3:
+        # e.g., 'Camila Ruiz Chaura' -> 'Ruiz Chaura C'
+        last = f'{words[1]} {words[2]}'
+        first = words[0][0].upper()
+        return f'{last} {first}'
+    else:
+        # e.g., 'Helmuth Daniel Muñoz Martínez' -> 'Muñoz Martínez HD'
+        last = f'{words[-2]} {words[-1]}'
+        first_words = words[:-2]
+        initials = ''.join([w[0].upper() for w in first_words if w])
+        return f'{last} {initials}'
+
 def fetch_publications(session, headers):
     print(f"Fetching publications for ORCID: {ORCID_ID}...")
     
@@ -102,11 +143,13 @@ def fetch_publications(session, headers):
             # Extract contributors
             contribs = get_nested(detail, "contributors", "contributor", default=[])
             if contribs and not authors_list:
-                authors_list = [
+                raw_authors = [
                     c["credit-name"]["value"] 
                     for c in contribs 
                     if isinstance(c, dict) and get_nested(c, "credit-name", "value")
                 ]
+                # Format each name individually
+                authors_list = [format_author_name(a) for a in raw_authors]
                 
         # Clean title
         if title:
@@ -117,7 +160,7 @@ def fetch_publications(session, headers):
             url = f"https://doi.org/{doi}"
             
         # Fallback for authors
-        authors_str = ", ".join(authors_list) if authors_list else "Halabi, Diego"
+        authors_str = ", ".join(authors_list) if authors_list else "Halabi D"
         
         if not title:
             continue
@@ -167,12 +210,10 @@ def fetch_grants(session, headers):
     parsed_grants = []
     
     for i, group in enumerate(groups):
-        # We merge info from the funding-summary elements in the group
         for summary in group.get("funding-summary", []):
             title = get_nested(summary, "title", "title", "value")
             f_type = summary.get("type", "award")
             
-            # Translate ORCID types to readable format
             display_type = "Grant"
             if f_type == "salary-award":
                 display_type = "Salary Award / Fellowship"
@@ -186,7 +227,6 @@ def fetch_grants(session, headers):
             
             org_name = get_nested(summary, "organization", "name")
             
-            # Extract grant number
             grant_number = None
             ext_ids = get_nested(summary, "external-ids", "external-id", default=[])
             for ext_id in ext_ids:
@@ -195,7 +235,6 @@ def fetch_grants(session, headers):
                     
             url = get_nested(summary, "url", "value")
             
-            # Fallback to general ORCID profile or ANID search if no URL
             if not url:
                 url = f"https://orcid.org/{ORCID_ID}"
                 
@@ -210,9 +249,9 @@ def fetch_grants(session, headers):
                     "link": url
                 })
                 print(f"Processed grant [{i+1}/{len(groups)}]: {title[:50]}...")
-                break # Only process one summary per group to avoid duplicate records
+                break
                 
-    # Sort grants: Start year descending (treat N/A as oldest)
+    # Sort grants
     def sort_grants_key(grant):
         yr = grant["start_year"]
         try:
@@ -236,7 +275,7 @@ def main():
     os.makedirs(DATA_DIR, exist_ok=True)
     
     pub_success = fetch_publications(session, headers)
-    time.sleep(0.5) # respectful gap
+    time.sleep(0.5)
     grant_success = fetch_grants(session, headers)
     
     if not (pub_success and grant_success):
