@@ -25,5 +25,11 @@ Thumbs.db
 *.swp
 *.swo
 
+# Node / Tailwind build tooling
+node_modules/
+
 # Local build/cache files
 .vercel
+
+# Note: css/styles.css is a committed build artifact (Vercel serves it statically).
+# Regenerate it with `npm run build:css` after changing markup or the Tailwind config.

@@ -10,30 +10,18 @@
   <meta name="author" content="Dr. Diego Halabi">
   <meta name="robots" content="index, follow">
   
-  <!-- Tailwind CSS Play CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS (built & purged via Tailwind CLI -> npm run build:css) -->
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <!-- Theme init (runs before paint to avoid FOUC / theme flash) -->
   <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brandDark: '#080c14',
-            brandDarkCard: '#111726',
-            brandDarkBorder: '#1f293d',
-            accentTeal: {
-              DEFAULT: '#00f5d4',
-              hover: '#00d1b5',
-              muted: '#0d9488'
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-            mono: ['Fira Code', 'JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
-          }
-        }
-      }
-    }
+    (function () {
+      var stored = localStorage.getItem('color-theme');
+      var isDark = stored === 'dark' ||
+        (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.add(isDark ? 'dark' : 'light');
+      document.documentElement.classList.remove(isDark ? 'light' : 'dark');
+    })();
   </script>
 
   <!-- Google Fonts (Inter & Fira Code) -->
@@ -44,51 +32,6 @@
   <!-- FontAwesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Custom Styles for Grid and Hacker Aesthetic -->
-  <style type="text/css">
-    .bg-grid {
-      background-size: 50px 50px;
-      background-image: 
-        linear-gradient(to right, rgba(13, 148, 136, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(13, 148, 136, 0.04) 1px, transparent 1px);
-    }
-    .dark .bg-grid {
-      background-image: 
-        linear-gradient(to right, rgba(0, 245, 212, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 245, 212, 0.02) 1px, transparent 1px);
-    }
-    .glow-effect {
-      box-shadow: 0 0 20px rgba(0, 245, 212, 0.15);
-    }
-    .glow-text {
-      text-shadow: 0 0 8px rgba(0, 245, 212, 0.5);
-    }
-    /* Simple custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    .dark ::-webkit-scrollbar-thumb {
-      background: #1f293d;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 4px;
-    }
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-    }
-  </style>
-  
   <!-- Vercel Analytics & Speed Insights -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -179,7 +122,7 @@
           <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-teal-600 to-teal-400 dark:from-accentTeal dark:to-teal-500 opacity-20 dark:opacity-40 group-hover:opacity-75 blur transition-opacity duration-300"></div>
           <!-- Profile Pic Container -->
           <div class="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-white dark:border-brandDark bg-white dark:bg-brandDarkCard shadow-xl">
-            <img src="./images/myself.jpg" alt="Dr. Diego Halabi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/200?text=Diego+Halabi'">
+            <img src="./images/myself.jpg" alt="Dr. Diego Halabi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
           </div>
         </div>
       </div>
@@ -228,7 +171,7 @@
               <div class="absolute -inset-1 rounded-lg bg-gradient-to-r from-teal-600 to-teal-400 dark:from-accentTeal dark:to-teal-500 opacity-20 dark:opacity-30 group-hover:opacity-60 blur-md transition-opacity duration-300"></div>
               <!-- Image container -->
               <div class="relative rounded-lg overflow-hidden border border-slate-200 dark:border-brandDarkBorder bg-slate-100 dark:bg-brandDark shadow-md">
-                <img src="./images/adipocites.png" alt="Clinical and Translational Research - Adipocytes" class="w-full max-h-[220px] md:max-h-none object-cover transition-all duration-300 group-hover:scale-[1.02] group-hover:opacity-90 animate-fade-in" onerror="this.src='https://via.placeholder.com/300x200?text=Adipocytes+Research'">
+                <img src="./images/adipocites.png" alt="Clinical and Translational Research - Adipocytes" class="w-full max-h-[220px] md:max-h-none object-cover transition-all duration-300 group-hover:scale-[1.02] group-hover:opacity-90" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
               </div>
             </div>
           </div>
@@ -369,7 +312,7 @@
             <!-- Image Column -->
             <div class="md:col-span-5 flex justify-center items-center">
               <div class="relative group w-full max-w-[280px] md:max-w-none flex justify-center">
-                <img src="./images/rstudio.png" alt="Data Science Stack - RStudio" class="w-full max-h-[220px] md:max-h-[240px] object-contain transition-transform duration-300 group-hover:scale-[1.02]" onerror="this.src='https://via.placeholder.com/300x180?text=RStudio+Data+Science'">
+                <img src="./images/rstudio.png" alt="Data Science Stack - RStudio" class="w-full max-h-[220px] md:max-h-[240px] object-contain transition-transform duration-300 group-hover:scale-[1.02]" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
               </div>
             </div>
 
@@ -554,7 +497,7 @@
         &copy; 2026 Dr. Diego Halabi. Built with static simplicity.
       </p>
       <p class="text-slate-500 dark:text-slate-600">
-        Hosted on GitHub Pages &bull; Integrated via ORCID API CI/CD &bull; Deployed on Vercel
+        Deployed on Vercel &bull; Integrated via ORCID API CI/CD
       </p>
     </div>
   </footer>
@@ -568,216 +511,24 @@
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-    // On page load, apply theme
-    if (localStorage.getItem('color-theme') === 'dark' || 
-        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-      themeToggleLightIcon.classList.remove('hidden');
-      themeToggleDarkIcon.classList.add('hidden');
-    } else {
-      document.documentElement.classList.add('light');
-      document.documentElement.classList.remove('dark');
-      themeToggleDarkIcon.classList.remove('hidden');
-      themeToggleLightIcon.classList.add('hidden');
+    // The dark/light class is already applied in <head> before paint (avoids FOUC).
+    // Here we only sync the toggle icons to the current state and wire the click.
+    function syncThemeIcons() {
+      const isDark = document.documentElement.classList.contains('dark');
+      themeToggleLightIcon.classList.toggle('hidden', !isDark);
+      themeToggleDarkIcon.classList.toggle('hidden', isDark);
     }
+    syncThemeIcons();
 
     themeToggleBtn.addEventListener('click', function() {
-      themeToggleDarkIcon.classList.toggle('hidden');
-      themeToggleLightIcon.classList.toggle('hidden');
-
-      if (localStorage.getItem('color-theme')) {
-        if (localStorage.getItem('color-theme') === 'light') {
-          document.documentElement.classList.add('dark');
-          document.documentElement.classList.remove('light');
-          localStorage.setItem('color-theme', 'dark');
-        } else {
-          document.documentElement.classList.add('light');
-          document.documentElement.classList.remove('dark');
-          localStorage.setItem('color-theme', 'light');
-        }
-      } else {
-        if (document.documentElement.classList.contains('dark')) {
-          document.documentElement.classList.add('light');
-          document.documentElement.classList.remove('dark');
-          localStorage.setItem('color-theme', 'light');
-        } else {
-          document.documentElement.classList.add('dark');
-          document.documentElement.classList.remove('light');
-          localStorage.setItem('color-theme', 'dark');
-        }
-      }
+      const isDark = document.documentElement.classList.toggle('dark');
+      document.documentElement.classList.toggle('light', !isDark);
+      localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+      syncThemeIcons();
     });
 
     // -------------------------------------------------------------
-    // 2. High-fidelity Fallback Publications (Complete list of all 23 papers)
-    // -------------------------------------------------------------
-    const localFallbackPublications = [
-      {
-        "title": "Prognostic Value of Neutrophil-to-Lymphocyte Ratio and Tumor-Infiltrating Lymphocytes (TILs), for Patients with Triple-Negative Breast Cancer",
-        "authors": "Soto M, Poblete MT, Ehrenfeld P, Halabi D",
-        "journal": "CANCER INVESTIGATION",
-        "year": "2026",
-        "link": "https://doi.org/10.1080/07357907.2025.2612595"
-      },
-      {
-        "title": "Sex-Specific Metabolic Effects of Gestational Chronodisruption and Maternal Melatonin Supplementation in Rat Offspring",
-        "authors": "Mendez N, Corvalan F, Halabi D, Vasquez A, Vergara K, Noriega H, Ehrenfeld P, Sanhueza K, Seron-Ferre M, Valenzuela GJ, Torres-Farfan C",
-        "journal": "JOURNAL OF PINEAL RESEARCH",
-        "year": "2024",
-        "link": "https://doi.org/10.1111/JPI.70015"
-      },
-      {
-        "title": "Difference in Receptor Activator of Nuclear Factor k B Expression in Tumoral Tissue by Different Periodontal Pathogens",
-        "authors": "Maher A, Munoz DN, Pavicic MF, Gonzalez M, Ehrenfeld P, Halabi D, Munoz-Kramm A, Munoz H",
-        "journal": "INTERNATIONAL JOURNAL OF MORPHOLOGY",
-        "year": "2023",
-        "link": "https://publons.com/wos-op/publon/61677396/"
-      },
-      {
-        "title": "From gestational chronodisruption to noncommunicable diseases: Pathophysiological mechanisms of programming of adult diseases, and the potential therapeutic role of melatonin",
-        "authors": "Mendez N, Corvalan F, Halabi D, Ehrenfeld P, Maldonado R, Vergara K, Seron-Ferre M, Torres-Farfan C",
-        "journal": "JOURNAL OF PINEAL RESEARCH",
-        "year": "2023",
-        "link": "https://doi.org/10.1111/JPI.12908"
-      },
-      {
-        "title": "Effects of exercise on irisin in subjects with overweight or obesity. A systematic review of clinical studies",
-        "authors": "Bernal-Rivas C, Llamunao-Tropa A, Reyes-Barria A, Halabi D, Pavicic F, Ehrenfeld P, Martinez-Huenchullan S",
-        "journal": "NUTRICION HOSPITALARIA",
-        "year": "2022",
-        "link": "https://doi.org/10.20960/NH.04202"
-      },
-      {
-        "title": "Maternal melatonin treatment rescues endocrine, inflammatory, and transcriptional deregulation in the adult rat female offspring from gestational chronodisruption",
-        "authors": "Mendez N, Halabi D, Roberto Salazar-Petres E, Vergara K, Corvalan F, Richter HG, Bastidas C, Bascur P, Ehrenfeld P, Seron-Ferre M, Torres-Farfan C",
-        "journal": "FRONTIERS IN NEUROSCIENCE",
-        "year": "2022",
-        "link": "https://doi.org/10.3389/FNINS.2022.1039977"
-      },
-      {
-        "title": "New integrative approaches to discovery of pathophysiological mechanisms triggered by night shift work",
-        "authors": "Richter HG, Mendez N, Halabi D, Torres-Farfan C, Spichiger C",
-        "journal": "CHRONOBIOLOGY INTERNATIONAL",
-        "year": "2022",
-        "link": "https://doi.org/10.1080/07420528.2021.1994984"
-      },
-      {
-        "title": "Maternal Chronodisruption Throughout Pregnancy Impairs Glucose Homeostasis and Adipose Tissue Physiology in the Male Rat Offspring",
-        "authors": "Halabi D, Richter HG, Mendez N, Kahne T, Spichiger C, Salazar E, Torres F, Vergara K, Seron-Ferre M, Torres-Farfan C",
-        "journal": "FRONTIERS IN ENDOCRINOLOGY",
-        "year": "2021",
-        "link": "https://doi.org/10.3389/FENDO.2021.678468"
-      },
-      {
-        "title": "Fetal programming of adipose tissue function by gestational chronodisruption",
-        "authors": "Halabi D, Ehrenfeld P, Mendez N, Richter Hans GH, Torres-Farfan C",
-        "journal": "SLEEP SCIENCE",
-        "year": "2020",
-        "link": "https://doi.org/10.5935/1984-0063.20200014"
-      },
-      {
-        "title": "Fetal Programming of Renal Dysfunction and High Blood Pressure by Chronodisruption",
-        "authors": "Mendez N, Torres-Farfan C, Salazar E, Bascur P, Bastidas C, Vergara K, Spichiger C, Halabi D, Vio CP, Richter HG",
-        "journal": "FRONTIERS IN ENDOCRINOLOGY",
-        "year": "2019",
-        "link": "https://doi.org/10.3389/FENDO.2019.00362"
-      },
-      {
-        "title": "Pericytes Favor Oligodendrocyte Fate Choice in Adult Neural Stem Cells",
-        "authors": "Elena Silva M, Lange S, Hinrichsen B, Philp AR, Reyes CR, Halabi D, Mansilla JB, Rotheneichner P, de la Fuente AG, Couillard-Despres S, Batiz LF, Franklin RJM, Aigner L, Rivera FJ",
-        "journal": "FRONTIERS IN CELLULAR NEUROSCIENCE",
-        "year": "2019",
-        "link": "https://doi.org/10.3389/FNCEL.2019.00085"
-      },
-      {
-        "title": "Soluble factors derived from brain pericytes promote neural stem cells to generate oligodendrocytes",
-        "authors": "Rivera FJ, Silva ME, Lange S, Hinrichsen B, Philp AR, Reyes CR, Halabi D, Mansilla J, Rotheneichner P, de la Fuente AG, Couillard-Despres S, Batiz LF, Franklin RJ, Aigner L",
-        "journal": "GLIA",
-        "year": "2019",
-        "link": "https://publons.com/wos-op/publon/33739975/"
-      },
-      {
-        "title": "Calidad metodológica de estudios clínicos de ortodoncia publicados entre 2012-2016",
-        "authors": "Ruiz Chaura C, Ulloa Riffo N, Halabí Robles D, Muñoz Martínez HD",
-        "journal": "Odontoestomatología",
-        "year": "2018",
-        "link": "https://doi.org/10.22592/ode2018n31a4"
-      },
-      {
-        "title": "Chlorhexidine for prevention of alveolar osteitis: a randomised clinical trial",
-        "authors": "Halabi D, Escobar J, Alvarado C, Martinez N, Munoz C",
-        "journal": "Journal of Applied Oral Science",
-        "year": "2018",
-        "link": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5933829/"
-      },
-      {
-        "title": "Design and Validation of a Basic Dental Psychomotor Skills Test for Novice Dental Students",
-        "authors": "Segura C, Halabi D, Navarro N",
-        "journal": "JOURNAL OF DENTAL EDUCATION",
-        "year": "2018",
-        "link": "https://doi.org/10.21815/JDE.018.111"
-      },
-      {
-        "title": "Gestational chronodisruption leads to persistent changes in the rat fetal and adult adrenal clock and function",
-        "authors": "Salazar ER, Richter HG, Spichiger C, Mendez N, Halabi D, Vergara K, Alonso IP, Corvalan FA, Azpeleta C, Seron-Ferre M, Torres-Farfan C",
-        "journal": "JOURNAL OF PHYSIOLOGY-LONDON",
-        "year": "2018",
-        "link": "https://doi.org/10.1113/JP276083"
-      },
-      {
-        "title": "GESTATIONAL CHRONODISRUPTION IMPAIRS CIRCADIAN PHYSIOLOGY IN RAT MALE OFFSPRING, INCREASING THE RISK OF CHRONIC DISEASE",
-        "authors": "Torres-Farfan C, Mendez N, Halabi D, Spichiger C, Salazar ER, Vergara K, Richter HG",
-        "journal": "PLACENTA",
-        "year": "2017",
-        "link": "https://doi.org/10.1016/J.PLACENTA.2017.01.023"
-      },
-      {
-        "title": "Chlorhexidine mouthwash for the prevention of alveolar osteitis after oral surgery",
-        "authors": "Halabi D",
-        "journal": "http://isrctn.com/",
-        "year": "2016",
-        "link": "https://doi.org/10.1186/isrctn14646628"
-      },
-      {
-        "title": "Gestational Chronodisruption Impairs Circadian Physiology in Rat Male Offspring, Increasing the Risk of Chronic Disease",
-        "authors": "Mendez N, Halabi D, Spichiger C, Salazar ER, Vergara K, Alonso-Vasquez P, Carmona P, Sarmiento JM, Richter HG, Seron-Ferre M, Torres-Farfan C",
-        "journal": "ENDOCRINOLOGY",
-        "year": "2016",
-        "link": "https://doi.org/10.1210/EN.2016-1282"
-      },
-      {
-        "title": "Comparison of marginal adaptation between a monoincremental resin with sonic activation and a conventional resin",
-        "authors": "Villa J, Meier R, Ruiz P, Halabí D",
-        "journal": "Journal Oral Of Research",
-        "year": "2015",
-        "link": "https://doi.org/10.17126/joralres.2015.074"
-      },
-      {
-        "title": "Prevalence of neuropathic symptoms in patients referred for temporomandibular disorder in a Chilean hospital, 2014-2015",
-        "authors": "Miranda S, Gayoso C, Ruiz P, Halabi D",
-        "journal": "Journal Oral Of Research",
-        "year": "2015",
-        "link": "https://doi.org/10.17126/joralres.2015.051"
-      },
-      {
-        "title": "Association between abdominal obesity and periodontal disease. Cross-sectional study",
-        "authors": "Juarez I, Hernández M, Letelier C, Halabí D, Araneda C",
-        "journal": "Journal Oral Of Research",
-        "year": "2014",
-        "link": "https://doi.org/10.17126/joralres.2015.021"
-      },
-      {
-        "title": "Logistic Regression Analysis of Risk Factors for the Development of Alveolar Osteitis",
-        "authors": "Halab D, Escobar J, Muoz C, Uribe S",
-        "journal": "JOURNAL OF ORAL AND MAXILLOFACIAL SURGERY",
-        "year": "2012",
-        "link": "https://doi.org/10.1016/J.JOMS.2011.11.024"
-      }
-    ];
-
-    // -------------------------------------------------------------
-    // 3. Asynchronous Publication Fetching & Reactive System
+    // 2. Asynchronous Publication Fetching & Reactive System
     // -------------------------------------------------------------
     let allPublications = [];
     let displayedPublications = [];
@@ -785,6 +536,21 @@
     let showingAll = false;
     let selectedYear = 'all';
     let searchQuery = '';
+
+    // Escape untrusted data (titles, authors, links from the ORCID API) before
+    // injecting it into innerHTML, to prevent HTML/markup injection.
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, (c) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    // Allow only safe URL schemes for links; neutralize anything else
+    // (e.g. javascript:), which escapeHtml alone would not catch.
+    function safeUrl(value) {
+      const url = String(value ?? '').trim();
+      return /^(https?:|mailto:)/i.test(url) ? url : '#';
+    }
 
     const container = document.getElementById('publications-container');
     const countLabel = document.getElementById('pub-count');
@@ -802,35 +568,20 @@
         }
         allPublications = await response.json();
       } catch (error) {
-        console.warn('Fetch failed, checking for local protocol fallback:', error);
-        
-        // Check if opened via file:// protocol
-        if (window.location.protocol === 'file:') {
-          allPublications = localFallbackPublications;
-          console.log('Loaded from local fallback due to file:// CORS restrictions');
-          
-          // Show badge alerting user that it is using local fallback data
-          const statusIndicator = document.getElementById('status-indicator');
-          if (statusIndicator) {
-             statusIndicator.innerHTML = `
-               <span class="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-               <span>Local File Fallback Mode (Open via Web Server or deploy to see live ORCID updates)</span>
-             `;
-             statusIndicator.classList.remove('text-slate-500');
-             statusIndicator.classList.add('text-amber-600', 'dark:text-amber-500');
-          }
-        } else {
-          container.innerHTML = `
-            <div class="p-6 text-center text-slate-500 font-mono text-sm">
-              <i class="fa-solid fa-circle-exclamation text-rose-500 text-lg mb-2 block"></i>
-              Failed to load scientific publications. <br>
-              <span class="text-xs text-slate-500 mt-1 block">Please view my profile directly on ORCID.</span>
-            </div>
-          `;
-          return;
-        }
+        console.warn('Failed to load publications:', error);
+        const isFile = window.location.protocol === 'file:';
+        container.innerHTML = `
+          <div class="p-6 text-center text-slate-500 font-mono text-sm">
+            <i class="fa-solid fa-circle-exclamation text-rose-500 text-lg mb-2 block"></i>
+            ${isFile
+              ? 'Open this page via a web server or the deployed site to load publications.'
+              : 'Failed to load scientific publications.'} <br>
+            <span class="text-xs text-slate-500 mt-1 block">Please view my profile directly on ORCID.</span>
+          </div>
+        `;
+        return;
       }
-      
+
       // Populate years in drop-down list
       populateYearsDropdown();
       
@@ -910,31 +661,31 @@
             <div class="space-y-2 flex-1">
               <div class="flex items-center space-x-2">
                 <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">
-                  ${pub.year}
+                  ${escapeHtml(pub.year)}
                 </span>
                 <span class="text-xs font-mono text-slate-400 dark:text-slate-500">
                   #${idx + 1}
                 </span>
               </div>
               <h4 class="text-base font-bold text-slate-900 dark:text-white transition-colors">
-                ${pub.title}
+                ${escapeHtml(pub.title)}
               </h4>
               <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
-                ${pub.authors}
+                ${escapeHtml(pub.authors)}
               </p>
               <p class="text-xs font-mono text-slate-500 dark:text-slate-500 italic">
-                ${pub.journal}
+                ${escapeHtml(pub.journal)}
               </p>
             </div>
-            
+
             <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
-              <a href="${pub.link}" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-150 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" title="Open Publication Link">
+              <a href="${escapeHtml(safeUrl(pub.link))}" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" title="Open Publication Link">
                 <span>View Paper</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
               </a>
               ${doiText ? `
-                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-600 truncate max-w-[140px]" title="DOI: ${doiText}">
-                  DOI: ${doiText}
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-600 truncate max-w-[140px]" title="DOI: ${escapeHtml(doiText)}">
+                  DOI: ${escapeHtml(doiText)}
                 </span>
               ` : ''}
             </div>
@@ -971,27 +722,6 @@
     let allGrants = [];
     const grantsContainer = document.getElementById('grants-container');
 
-    const localFallbackGrants = [
-      {
-        "title": "A white and brown balance of obesity; developmental programming of adipose tissue by chronodisruption",
-        "type": "Research Grant",
-        "start_year": "2019",
-        "end_year": "2022",
-        "organization": "Comisión Nacional de Investigación Científica y Tecnológica",
-        "grant_number": "FONDECYT 11190711",
-        "link": "https://orcid.org/0000-0002-1474-8066"
-      },
-      {
-        "title": "La fuente de la juventud: desarrollo de un suplemento antioxidante, antiinflamatorio y neuroregenerativo derivado del lúpulo para el rejuvenecimiento cerebral",
-        "type": "Salary Award / Fellowship",
-        "start_year": "2018",
-        "end_year": "2020",
-        "organization": "Fondo de Fomento al Desarrollo Científico y Tecnológico",
-        "grant_number": "FONDEF ID17AM0043",
-        "link": "https://orcid.org/0000-0002-1474-8066"
-      }
-    ];
-
     async function loadGrants() {
       try {
         const response = await fetch('./data/grants.json');
@@ -1000,20 +730,18 @@
         }
         allGrants = await response.json();
       } catch (error) {
-        console.warn('Grants fetch failed, checking for local protocol fallback:', error);
-        if (window.location.protocol === 'file:') {
-          allGrants = localFallbackGrants;
-          console.log('Grants loaded from local fallback due to file:// CORS restrictions');
-        } else {
-          grantsContainer.innerHTML = `
-            <div class="p-6 text-center text-slate-500 font-mono text-sm">
-              <i class="fa-solid fa-circle-exclamation text-rose-500 text-lg mb-2 block"></i>
-              Failed to load research grants. <br>
-              <span class="text-xs text-slate-500 mt-1 block">Please view my profile directly on ORCID.</span>
-            </div>
-          `;
-          return;
-        }
+        console.warn('Failed to load grants:', error);
+        const isFile = window.location.protocol === 'file:';
+        grantsContainer.innerHTML = `
+          <div class="p-6 text-center text-slate-500 font-mono text-sm">
+            <i class="fa-solid fa-circle-exclamation text-rose-500 text-lg mb-2 block"></i>
+            ${isFile
+              ? 'Open this page via a web server or the deployed site to load grants.'
+              : 'Failed to load research grants.'} <br>
+            <span class="text-xs text-slate-500 mt-1 block">Please view my profile directly on ORCID.</span>
+          </div>
+        `;
+        return;
       }
       renderGrants();
     }
@@ -1035,25 +763,25 @@
             <div class="space-y-2 flex-1">
               <div class="flex items-center space-x-2">
                 <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">
-                  ${grant.start_year} - ${grant.end_year}
+                  ${escapeHtml(grant.start_year)} - ${escapeHtml(grant.end_year)}
                 </span>
                 <span class="text-xs font-mono text-slate-400 dark:text-slate-500">
-                  ID: ${grant.grant_number}
+                  ID: ${escapeHtml(grant.grant_number)}
                 </span>
               </div>
               <h4 class="text-base font-bold text-slate-900 dark:text-white transition-colors">
-                ${grant.title}
+                ${escapeHtml(grant.title)}
               </h4>
               <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
-                ${grant.organization}
+                ${escapeHtml(grant.organization)}
               </p>
               <p class="text-xs font-mono text-slate-500 dark:text-slate-500 italic">
-                ${grant.type}
+                ${escapeHtml(grant.type)}
               </p>
             </div>
-            
+
             <div class="flex sm:flex-col items-center sm:items-end justify-center w-full sm:w-auto self-center">
-              <a href="${grant.link}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-150 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" title="View Grant Info">
+              <a href="${escapeHtml(safeUrl(grant.link))}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" title="View Grant Info">
                 <span>View Grant</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
               </a>
