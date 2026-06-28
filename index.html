@@ -10,9 +10,6 @@
   <meta name="author" content="Dr. Diego Halabi">
   <meta name="robots" content="index, follow">
   
-  <!-- Tailwind CSS (built & purged via Tailwind CLI -> npm run build:css) -->
-  <link rel="stylesheet" href="./css/styles.css">
-
   <!-- Theme init (runs before paint to avoid FOUC / theme flash) -->
   <script>
     (function () {
@@ -31,6 +28,9 @@
 
   <!-- FontAwesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS (built & purged via Tailwind CLI -> npm run build:css). Loaded AFTER FontAwesome so utilities like `hidden` win over FA's display rule. -->
+  <link rel="stylesheet" href="./css/styles.css">
 
   <!-- Vercel Analytics & Speed Insights -->
   <script>
@@ -60,6 +60,7 @@
           <a href="#research" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Research</a>
           <a href="#skills" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Skills</a>
           <a href="#projects" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Projects</a>
+          <a href="#recognition" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Recognition</a>
           <a href="#publications" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Publications</a>
           <a href="#grants" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Grants</a>
         </nav>
@@ -84,7 +85,7 @@
           <div class="space-y-2">
             <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-teal-600/30 dark:border-accentTeal/30 bg-teal-50 dark:bg-accentTeal/10 text-teal-700 dark:text-accentTeal font-mono text-xs uppercase tracking-wider mb-2 shadow-sm cursor-default">
               <i class="fa-solid fa-graduation-cap animate-pulse"></i>
-              <span>Coming Soon: Diploma in Clinical Epidemiology</span>
+              <span>Director · Diploma in Clinical Epidemiology · Launching 2027</span>
             </div>
             <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white transition-colors duration-300">
               Dr. Diego Halabi
@@ -94,6 +95,9 @@
             </p>
             <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base max-w-xl">
               Head of the Department of Dentistry <span class="text-slate-300 dark:text-slate-500">|</span> Universidad Austral de Chile.
+            </p>
+            <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-xl pt-1">
+              Clinician-scientist &amp; developer, turning translational research and clinical epidemiology into tools that ship.
             </p>
           </div>
 
@@ -132,7 +136,7 @@
     <section class="space-y-6">
       <div class="flex items-center space-x-4">
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
-          <span class="text-teal-600 dark:text-accentTeal mr-2">01.</span>profile.sh
+          <span class="text-teal-600 dark:text-accentTeal mr-2">01.</span>Profile
         </h2>
         <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
@@ -143,10 +147,13 @@
         </div>
         <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-200 leading-relaxed font-sans text-sm md:text-base space-y-4">
           <p>
-            I am a clinician-scientist and developer who integrates translational research, clinical epidemiology, and software engineering. Currently serving as Head of the Department of Dentistry, my work is driven by a solid trajectory in chronobiology and systemic health.
+            I'm a clinician-scientist working at the intersection of chronobiology, metabolic physiology, and systemic health. For over a decade I've studied how circadian disruption during pregnancy (chronodisruption) programs metabolic and cardiovascular disease in the offspring (and how maternal melatonin can reverse it). This work has been published in journals such as the <em>Journal of Physiology</em>, <em>Journal of Pineal Research</em>, and <em>Frontiers in Endocrinology</em>.
           </p>
           <p>
-            I specialise in fusing biomedical rigour with data science and Linux-based infrastructures. This allows me to move beyond traditional research to actively build and deploy digital tools that modernise academic workflows and hospital administration.
+            Trained as a dentist and now Head of the Department of Dentistry, I connect oral and systemic health through the perio-systemic axis, the biological link between periodontal disease, obesity, and adipose-tissue inflammation.
+          </p>
+          <p>
+            In parallel, I build and deploy the software that supports this work, from automated assessment tools and reproducible-research platforms to the Linux infrastructure that runs them, bringing engineering rigor to academic and clinical workflows.
           </p>
         </div>
       </div>
@@ -156,29 +163,30 @@
     <section id="research" class="space-y-6 scroll-mt-20">
       <div class="flex items-center space-x-4">
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
-          <span class="text-teal-600 dark:text-accentTeal mr-2">02.</span>clinical_research.py
+          <span class="text-teal-600 dark:text-accentTeal mr-2">02.</span>research_analytics.R
         </h2>
         <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
 
       <div class="bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder rounded-xl p-6 md:p-8 relative overflow-hidden shadow-sm dark:shadow-lg dark:hover:shadow-accentTeal/5 transition-all">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          
-          <!-- Image Column -->
-          <div class="md:col-span-5 flex justify-center">
-            <div class="relative group">
-              <!-- Glow Backdrop -->
-              <div class="absolute -inset-1 rounded-lg bg-gradient-to-r from-teal-600 to-teal-400 dark:from-accentTeal dark:to-teal-500 opacity-20 dark:opacity-30 group-hover:opacity-60 blur-md transition-opacity duration-300"></div>
-              <!-- Image container -->
-              <div class="relative rounded-lg overflow-hidden border border-slate-200 dark:border-brandDarkBorder bg-slate-100 dark:bg-brandDark shadow-md">
-                <img src="./images/adipocites.png" alt="Clinical and Translational Research - Adipocytes" class="w-full max-h-[220px] md:max-h-none object-cover transition-all duration-300 group-hover:scale-[1.02] group-hover:opacity-90" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
-              </div>
+        <!-- Figures row (side by side, no glow) -->
+        <div class="grid grid-cols-2 gap-4 md:gap-6">
+          <figure class="group">
+            <div class="rounded-lg overflow-hidden border border-slate-200 dark:border-brandDarkBorder bg-slate-100 dark:bg-brandDark shadow-md h-44 md:h-60">
+              <img src="./images/adipocites.png" alt="Fluorescent adipocytes" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
             </div>
-          </div>
+            <figcaption class="mt-2 text-xs font-mono text-slate-500 dark:text-slate-500 text-center">Fluorescent adipocytes. Adipose-tissue developmental programming.</figcaption>
+          </figure>
+          <figure class="group">
+            <div class="h-44 md:h-60 flex items-center justify-center overflow-hidden">
+              <img src="./images/rstudio.png" alt="Cosinor model fit in RStudio" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-[1.02]" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
+            </div>
+            <figcaption class="mt-2 text-xs font-mono text-slate-500 dark:text-slate-500 text-center">Cosinor model fit in R. Quantifying circadian rhythms.</figcaption>
+          </figure>
+        </div>
 
-          <!-- Text Column -->
-          <div class="md:col-span-7 space-y-6">
-            <div class="space-y-4">
+        <!-- Text items below the figures -->
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
               <!-- Item 1 -->
               <div class="flex items-start space-x-3.5 group">
                 <div class="mt-1 flex items-center justify-center w-8 h-8 rounded-lg bg-teal-50 dark:bg-accentTeal/5 border border-teal-600/15 dark:border-accentTeal/20 text-teal-600 dark:text-accentTeal font-mono text-sm group-hover:scale-105 transition-transform">
@@ -190,6 +198,21 @@
                   </h3>
                   <p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
                     Leadership in translational and epidemiological research. Design of clinical trials, observational studies, and systematic reviews (Cochrane certified).
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item: Statistical Analysis & Modeling -->
+              <div class="flex items-start space-x-3.5 group">
+                <div class="mt-1 flex items-center justify-center w-8 h-8 rounded-lg bg-teal-50 dark:bg-accentTeal/5 border border-teal-600/15 dark:border-accentTeal/20 text-teal-600 dark:text-accentTeal font-mono text-sm group-hover:scale-105 transition-transform">
+                  <i class="fa-solid fa-chart-line text-xs"></i>
+                </div>
+                <div class="space-y-1">
+                  <h3 class="font-mono text-sm font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-accentTeal transition-colors">
+                    Statistical Analysis &amp; Modeling
+                  </h3>
+                  <p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
+                    End-to-end quantitative analysis, from exploratory data analysis to complex multivariate and nonlinear modeling (logistic regression, cosinor and sinusoidal models for circadian rhythms). Reproducible, fully scripted workflows in R (tidyverse) and Python, with RMarkdown and LaTeX.
                   </p>
                 </div>
               </div>
@@ -223,10 +246,11 @@
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-
         </div>
+
+        <p class="mt-8 pt-6 border-t border-slate-200 dark:border-brandDarkBorder text-xs md:text-sm text-slate-500 dark:text-slate-400 font-sans">
+          These methods underpin a sustained record of peer-reviewed work (see <a href="#publications" class="text-teal-600 dark:text-accentTeal hover:underline">Publications</a>).
+        </p>
       </div>
     </section>
 
@@ -234,7 +258,7 @@
     <section id="skills" class="space-y-6 scroll-mt-20">
       <div class="flex items-center space-x-4">
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
-          <span class="text-teal-600 dark:text-accentTeal mr-2">03.</span>infrastructure_stack
+          <span class="text-teal-600 dark:text-accentTeal mr-2">03.</span>engineering_stack
         </h2>
         <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
@@ -257,34 +281,33 @@
           <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
             <!-- Terminal Text Column -->
-            <div class="md:col-span-7 font-mono text-sm md:text-base space-y-6 text-left text-slate-700 dark:text-slate-300 transition-colors duration-300">
+            <div class="md:col-span-6 font-mono text-sm md:text-base space-y-6 text-left text-slate-700 dark:text-slate-300 transition-colors duration-300">
               
-              <!-- Category: Data Science & Research -->
+              <!-- Category: Languages & Frameworks -->
               <div>
                 <div class="flex items-center text-teal-700 dark:text-accentTeal">
                   <span class="text-slate-400 dark:text-slate-500 mr-2">$</span>
-                  <span class="font-semibold dark:font-normal">cat data_science_research.txt</span>
-                </div>
-                <div class="mt-2 pl-4 flex flex-wrap gap-2">
-                  <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">R (tidyverse)</span>
-                  <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">Statistical Modeling</span>
-                  <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">Biostatistics</span>
-                  <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">LaTeX</span>
-                  <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">RMarkdown</span>
-                </div>
-              </div>
-
-              <!-- Category: Software Dev -->
-              <div>
-                <div class="flex items-center text-teal-700 dark:text-accentTeal">
-                  <span class="text-slate-400 dark:text-slate-500 mr-2">$</span>
-                  <span class="font-semibold dark:font-normal">cat software_dev.txt</span>
+                  <span class="font-semibold dark:font-normal">cat languages_frameworks.txt</span>
                 </div>
                 <div class="mt-2 pl-4 flex flex-wrap gap-2">
                   <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">Python</span>
                   <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">FastAPI</span>
                   <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">CustomTkinter</span>
-                  <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">SQL</span>
+                  <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">SQL (PostgreSQL / SQLite)</span>
+                </div>
+              </div>
+
+              <!-- Category: Applied Engineering -->
+              <div>
+                <div class="flex items-center text-teal-700 dark:text-accentTeal">
+                  <span class="text-slate-400 dark:text-slate-500 mr-2">$</span>
+                  <span class="font-semibold dark:font-normal">cat applied_engineering.txt</span>
+                </div>
+                <div class="mt-2 pl-4 flex flex-wrap gap-2">
+                  <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">Computer Vision (OpenCV / OMR)</span>
+                  <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">Cryptography (Fernet, Ed25519)</span>
+                  <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">LLM Integration (Gemini, Claude)</span>
+                  <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">SSE Streaming</span>
                 </div>
               </div>
 
@@ -298,6 +321,7 @@
                   <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">Linux (Arch Linux)</span>
                   <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">Headless Servers</span>
                   <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">CI/CD</span>
+                  <span class="px-2 py-0.5 rounded border border-slate-300/80 dark:border-brandDarkBorder bg-white dark:bg-brandDark/40 text-xs">Vercel + Railway</span>
                 </div>
               </div>
 
@@ -310,9 +334,9 @@
             </div>
 
             <!-- Image Column -->
-            <div class="md:col-span-5 flex justify-center items-center">
-              <div class="relative group w-full max-w-[280px] md:max-w-none flex justify-center">
-                <img src="./images/rstudio.png" alt="Data Science Stack - RStudio" class="w-full max-h-[220px] md:max-h-[240px] object-contain transition-transform duration-300 group-hover:scale-[1.02]" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
+            <div class="md:col-span-6 flex justify-center items-center">
+              <div class="relative group w-full flex justify-center">
+                <img src="./images/evalumina.png" alt="EvaLumina application interface" class="w-full max-h-[280px] md:max-h-[360px] object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.02]" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
               </div>
             </div>
 
@@ -325,12 +349,12 @@
     <section id="projects" class="space-y-6 scroll-mt-20">
       <div class="flex items-center space-x-4">
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
-          <span class="text-teal-600 dark:text-accentTeal mr-2">04.</span>clinical_solutions
+          <span class="text-teal-600 dark:text-accentTeal mr-2">04.</span>projects/
         </h2>
         <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Project 1 -->
         <article class="bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder hover:border-teal-600/30 dark:hover:border-accentTeal/30 rounded-xl p-6 flex flex-col justify-between shadow-sm dark:shadow-lg dark:hover:shadow-accentTeal/5 transition-all duration-300 hover:-translate-y-1 group">
           <div class="space-y-4">
@@ -338,23 +362,52 @@
               <div class="text-teal-600 dark:text-accentTeal text-xl">
                 <i class="fa-solid fa-square-poll-vertical"></i>
               </div>
-              <span class="font-mono text-xs text-slate-400 dark:text-slate-500">v1.2.0</span>
+              <div class="flex items-center gap-3">
+                <a href="https://evalumina.app" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-teal-600 dark:text-slate-500 dark:hover:text-accentTeal transition-colors" title="Open evalumina.app"><i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+                <span class="font-mono text-xs text-slate-400 dark:text-slate-500">v1.2.0</span>
+              </div>
             </div>
             <div class="space-y-2">
               <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-accentTeal transition-colors">EvaLumina</h3>
               <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
-                Multiplatform Automated Evaluation System with Optical Mark Recognition (OMR) and Local Algorithmic Validation (Developed in Python).
+                Multiplatform automated evaluation system with Optical Mark Recognition (OMR) and encrypted answer keys (developed in Python).
               </p>
             </div>
           </div>
           <div class="mt-6 flex flex-wrap gap-1.5 font-mono text-xs">
             <span class="px-2 py-0.5 bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder/60 rounded text-slate-600 dark:text-slate-400">Python</span>
-            <span class="px-2 py-0.5 bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder/60 rounded text-slate-600 dark:text-slate-400">OMR</span>
+            <span class="px-2 py-0.5 bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder/60 rounded text-slate-600 dark:text-slate-400">OpenCV</span>
             <span class="px-2 py-0.5 bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder/60 rounded text-slate-600 dark:text-slate-400">EdTech</span>
           </div>
         </article>
 
-        <!-- Project 2 -->
+        <!-- Project 2 (AI Assistant) -->
+        <article class="bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder hover:border-teal-600/30 dark:hover:border-accentTeal/30 rounded-xl p-6 flex flex-col justify-between shadow-sm dark:shadow-lg dark:hover:shadow-accentTeal/5 transition-all duration-300 hover:-translate-y-1 group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="text-teal-600 dark:text-accentTeal text-xl">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <div class="flex items-center gap-3">
+                <a href="https://esod150.vercel.app" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-teal-600 dark:text-slate-500 dark:hover:text-accentTeal transition-colors" title="Open esod150.vercel.app"><i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+                <span class="font-mono text-xs text-slate-400 dark:text-slate-500">Live</span>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-accentTeal transition-colors">AI Assistant for Epidemiology Teaching</h3>
+              <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                Active-learning platform for Clinical Epidemiology. Computes a deterministic vocational profile and streams AI-generated feedback (Gemini/Claude), built as an open, reproducible educational-research study with informed consent.
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-1.5 font-mono text-xs">
+            <span class="px-2 py-0.5 bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder/60 rounded text-slate-600 dark:text-slate-400">FastAPI</span>
+            <span class="px-2 py-0.5 bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder/60 rounded text-slate-600 dark:text-slate-400">LLM</span>
+            <span class="px-2 py-0.5 bg-slate-50 dark:bg-brandDark border border-slate-200 dark:border-brandDarkBorder/60 rounded text-slate-600 dark:text-slate-400">Open Science</span>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
         <article class="bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder hover:border-teal-600/30 dark:hover:border-accentTeal/30 rounded-xl p-6 flex flex-col justify-between shadow-sm dark:shadow-lg dark:hover:shadow-accentTeal/5 transition-all duration-300 hover:-translate-y-1 group">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
@@ -379,11 +432,87 @@
       </div>
     </section>
 
+    <!-- Recognition & Service Section -->
+    <section id="recognition" class="space-y-6 scroll-mt-20">
+      <div class="flex items-center space-x-4">
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
+          <span class="text-teal-600 dark:text-accentTeal mr-2">05.</span>service.log
+        </h2>
+        <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
+      </div>
+
+      <div class="bg-white dark:bg-brandDarkCard border border-slate-200 dark:border-brandDarkBorder rounded-xl p-6 md:p-8 shadow-sm dark:shadow-lg">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+          <!-- Awards -->
+          <div class="space-y-2">
+            <div class="flex items-center space-x-3">
+              <div class="flex items-center justify-center w-9 h-9 rounded-lg bg-teal-50 dark:bg-accentTeal/5 border border-teal-600/15 dark:border-accentTeal/20 text-teal-600 dark:text-accentTeal shrink-0">
+                <i class="fa-solid fa-trophy text-sm"></i>
+              </div>
+              <h3 class="font-mono text-sm font-bold text-slate-900 dark:text-white">Awards</h3>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
+              Sleep Science Prize, Best Presentation. XV Latin American Symposium on Chronobiology (Brazilian Sleep Society, 2019).
+            </p>
+          </div>
+
+          <!-- Editorial & Peer Review -->
+          <div class="space-y-2">
+            <div class="flex items-center space-x-3">
+              <div class="flex items-center justify-center w-9 h-9 rounded-lg bg-teal-50 dark:bg-accentTeal/5 border border-teal-600/15 dark:border-accentTeal/20 text-teal-600 dark:text-accentTeal shrink-0">
+                <i class="fa-solid fa-pen-nib text-sm"></i>
+              </div>
+              <h3 class="font-mono text-sm font-bold text-slate-900 dark:text-white">Editorial &amp; Peer Review</h3>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
+              Review Editor, Frontiers in Oral Health. Grant and scholarship evaluator for ANID (Medical Sciences panel). Reviewer for BMC Oral Health, Frontiers in Endocrinology, and BMJ Case Reports.
+            </p>
+          </div>
+
+          <!-- Academic Leadership -->
+          <div class="space-y-2">
+            <div class="flex items-center space-x-3">
+              <div class="flex items-center justify-center w-9 h-9 rounded-lg bg-teal-50 dark:bg-accentTeal/5 border border-teal-600/15 dark:border-accentTeal/20 text-teal-600 dark:text-accentTeal shrink-0">
+                <i class="fa-solid fa-sitemap text-sm"></i>
+              </div>
+              <h3 class="font-mono text-sm font-bold text-slate-900 dark:text-white">Academic Leadership</h3>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
+              Head of the Department of Dentistry (Instituto de Odontoestomatología). CNA accreditation self-assessment committee. Former Director, Medical Research Honors Program.
+            </p>
+          </div>
+
+          <!-- Teaching & Mentorship -->
+          <div class="space-y-2">
+            <div class="flex items-center space-x-3">
+              <div class="flex items-center justify-center w-9 h-9 rounded-lg bg-teal-50 dark:bg-accentTeal/5 border border-teal-600/15 dark:border-accentTeal/20 text-teal-600 dark:text-accentTeal shrink-0">
+                <i class="fa-solid fa-users text-sm"></i>
+              </div>
+              <h3 class="font-mono text-sm font-bold text-slate-900 dark:text-white">Teaching &amp; Mentorship</h3>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
+              Supervised 12+ undergraduate, master's, and MBA theses across Dentistry, Medicine, and Science.
+            </p>
+          </div>
+        </div>
+
+        <!-- Invited speaker line -->
+        <div class="mt-6 pt-6 border-t border-slate-200 dark:border-brandDarkBorder flex items-center space-x-3">
+          <div class="flex items-center justify-center w-9 h-9 rounded-lg bg-teal-50 dark:bg-accentTeal/5 border border-teal-600/15 dark:border-accentTeal/20 text-teal-600 dark:text-accentTeal shrink-0">
+            <i class="fa-solid fa-microphone text-sm"></i>
+          </div>
+          <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 font-sans">
+            Frequent invited speaker at national and international scientific meetings.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- Scientific Publications (Reactive Section) -->
     <section id="publications" class="space-y-6 scroll-mt-20">
       <div class="flex items-center space-x-4">
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
-          <span class="text-teal-600 dark:text-accentTeal mr-2">05.</span>publications.json
+          <span class="text-teal-600 dark:text-accentTeal mr-2">06.</span>publications.json
         </h2>
         <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
@@ -412,7 +541,7 @@
         <div class="bg-slate-50 dark:bg-brandDark/50 border-b border-slate-200 dark:border-brandDarkBorder/60 px-4 py-2.5 flex justify-between items-center text-xs font-mono">
           <div id="status-indicator" class="flex items-center space-x-2 text-slate-500">
             <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-            <span>Local Cache Active</span>
+            <span>Synced from ORCID</span>
           </div>
           <span id="pub-count" class="text-slate-500">0 items found</span>
         </div>
@@ -456,7 +585,7 @@
     <section id="grants" class="space-y-6 scroll-mt-20">
       <div class="flex items-center space-x-4">
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
-          <span class="text-teal-600 dark:text-accentTeal mr-2">06.</span>funding_grants.json
+          <span class="text-teal-600 dark:text-accentTeal mr-2">07.</span>grants.json
         </h2>
         <div class="h-[1px] bg-slate-200 dark:bg-brandDarkBorder flex-1"></div>
       </div>
@@ -468,7 +597,7 @@
         <div class="bg-slate-50 dark:bg-brandDark/50 border-b border-slate-200 dark:border-brandDarkBorder/60 px-4 py-2.5 flex justify-between items-center text-xs font-mono">
           <div class="flex items-center space-x-2 text-slate-500">
             <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-            <span>External API Connection Active</span>
+            <span>Synced from ORCID</span>
           </div>
           <span class="text-slate-500 dark:text-slate-500">Research Funding</span>
         </div>
