@@ -2,7 +2,7 @@
 
 Personal portfolio of **Dr. Diego Halabi** — DDS, PhD in Medical Sciences, Head of the Department of Dentistry at Universidad Austral de Chile — integrating biomedical research, data science, and software engineering.
 
-🔗 **Live site:** [diegohalabi-web on Vercel](https://github.com/diegohalabi/diegohalabi-web)
+🔗 **Live site:** [diegohalabi.cl](https://diegohalabi.cl)
 
 ---
 
