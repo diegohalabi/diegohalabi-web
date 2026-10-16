@@ -390,10 +390,10 @@ def render_publication(pub, idx):
               </div>
               <h3 class="text-base font-bold text-slate-900 dark:text-white">{esc(pub['title'])}</h3>
               <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">{render_authors(pub['authors'])}</p>
-              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">{esc(pub['journal'])}</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 italic">{esc(pub['journal'])}</p>
             </div>
             <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
-              <a href="{esc(safe_url(pub['link']))}" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: {esc(pub['title'])}">
+              <a href="{esc(safe_url(pub['link']))}" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-medium rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: {esc(pub['title'])}">
                 <span>View Paper</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
               </a>{doi_html}
@@ -410,10 +410,10 @@ def render_grant(grant):
               </div>
               <h3 class="text-base font-bold text-slate-900 dark:text-white">{esc(grant['title'])}</h3>
               <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">{esc(grant['organization'])}</p>
-              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">{esc(grant['type'])}</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 italic">{esc(grant['type'])}</p>
             </div>
             <div class="flex sm:flex-col items-center sm:items-end justify-center w-full sm:w-auto self-center">
-              <a href="{esc(safe_url(grant['link']))}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View grant: {esc(grant['title'])}">
+              <a href="{esc(safe_url(grant['link']))}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center px-3 py-1.5 text-xs font-medium rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View grant: {esc(grant['title'])}">
                 <span>View Grant</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
               </a>

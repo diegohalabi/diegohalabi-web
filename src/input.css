@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Styles for Grid and Hacker Aesthetic */
+/* Subtle background grid */
 .bg-grid {
   background-size: 50px 50px;
   background-image:
@@ -13,12 +13,6 @@
   background-image:
     linear-gradient(to right, rgba(0, 245, 212, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 245, 212, 0.02) 1px, transparent 1px);
-}
-.glow-effect {
-  box-shadow: 0 0 20px rgba(0, 245, 212, 0.15);
-}
-.glow-text {
-  text-shadow: 0 0 8px rgba(0, 245, 212, 0.5);
 }
 /* Simple custom scrollbar */
 ::-webkit-scrollbar {
