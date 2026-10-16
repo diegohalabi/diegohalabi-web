@@ -8,13 +8,15 @@ Personal portfolio of **Dr. Diego Halabi** — DDS, PhD in Medical Sciences, Hea
 
 ## Overview
 
-A single-page, framework-free static portfolio. The publications and research grants are **synced automatically from ORCID** every week via a GitHub Actions cron job, so the site stays up to date without manual edits.
+A bilingual (English / Spanish), framework-free static portfolio. The publications and research grants are **synced automatically from ORCID** every week via a GitHub Actions cron job, so the site stays up to date without manual edits.
 
 ### Features
 
-- ⚡️ **Static & dependency-free runtime** — one `index.html`, no client framework.
+- ⚡️ **Static, no client framework** — two hand-written pages (`index.html` in English, `es/index.html` in Spanish) sharing one stylesheet and one small script.
+- 🌐 **Bilingual** — language switch in the header, `hreflang` alternates and a sitemap with both versions.
+- 📄 **Downloadable CV** — English and Spanish PDFs in `cv/`.
 - 🌗 **Dark / light theme** — toggled and persisted in `localStorage`, with no flash of unstyled content (theme is applied before first paint).
-- 🔄 **Automatic ORCID sync** — publications and grants are fetched weekly, normalized (author names, journal titles, DOI links) and committed to `data/` and `index.html`.
+- 🔄 **Automatic ORCID sync** — publications and grants are fetched weekly, normalized (author names, journal titles, DOI links) and committed to `data/` and both pages.
 - 🔎 **Indexable content** — publications and grants are pre-rendered as static HTML, so they are visible to search engines and without JavaScript.
 - 🔍 **Client-side search, year filter & pagination** over the pre-rendered publications (case- and accent-insensitive).
 - 🛡️ **Safe sync** — the sync aborts without touching existing data if any ORCID request fails or a list suddenly shrinks; all rendered content is HTML-escaped and links are restricted to an `http/https/mailto` allowlist.
@@ -27,9 +29,9 @@ A single-page, framework-free static portfolio. The publications and research gr
 
 | Area | Tool |
 |------|------|
-| Markup | Static HTML (`index.html`) |
+| Markup | Static HTML (`index.html`, `es/index.html`) |
 | Styling | Tailwind CSS v3 (CLI build) |
-| Interactivity | Vanilla JavaScript (inline) |
+| Interactivity | Vanilla JavaScript (`js/site.js`) |
 | Data sync | Python + ORCID public API |
 | Automation | GitHub Actions (weekly cron) |
 | Hosting | Vercel (static) |
@@ -40,7 +42,12 @@ A single-page, framework-free static portfolio. The publications and research gr
 
 ```
 .
-├── index.html              # The entire site (markup + inline JS; ORCID lists are generated)
+├── index.html              # English page (ORCID lists are generated)
+├── es/
+│   └── index.html          # Spanish page, same structure (ORCID lists are generated)
+├── js/
+│   └── site.js             # Theme toggle + publication search/filter, texts in both languages
+├── cv/                     # CV PDFs (copied from the CV repository)
 ├── css/
 │   └── styles.css          # Compiled Tailwind output (committed build artifact)
 ├── src/
@@ -51,12 +58,18 @@ A single-page, framework-free static portfolio. The publications and research gr
 │   └── grants.json         # Auto-generated from ORCID
 ├── images/                 # Profile photo, WebP project images, OG image, icons
 ├── scripts/
-│   ├── update_orcid.py     # Fetches ORCID data, writes data/*.json and renders it into index.html
+│   ├── update_orcid.py     # Fetches ORCID data, writes data/*.json and renders it into both pages
 │   └── compress_images.py  # Resizes/converts images to WebP
 ├── .github/workflows/      # ORCID sync workflow (weekly + manual dispatch)
 ├── package.json            # Tailwind build scripts
 └── requirements.txt        # Python deps for the sync script
 ```
+
+---
+
+## Editing content
+
+The two pages share the same markup; when you change a section, change it in both `index.html` and `es/index.html`. After changing markup or classes, rebuild the CSS (below). To update the CV, recompile it in the CV repository and copy the PDFs to `cv/diego-halabi-cv-en.pdf` and `cv/diego-halabi-cv-es.pdf`.
 
 ---
 
@@ -85,7 +98,7 @@ npm run watch:css      # rebuild on change during development
 
 ### 3. Serve the site
 
-Open `index.html` directly, or via a local web server:
+Open `index.html` (or `es/index.html`) directly, or via a local web server:
 
 ```bash
 npx serve .
@@ -97,14 +110,16 @@ python3 -m http.server 8000
 
 ## ORCID data sync
 
-Publications and grants are pulled from the [ORCID public API](https://pub.orcid.org/), written to `data/publications.json` and `data/grants.json`, and rendered as static HTML into `index.html` between the `<!-- ORCID:* -->` markers (never edit those blocks by hand).
+Publications and grants are pulled from the [ORCID public API](https://pub.orcid.org/), written to `data/publications.json` and `data/grants.json`, and rendered as static HTML into `index.html` and `es/index.html` between the `<!-- ORCID:* -->` markers (never edit those blocks by hand).
 
 Name and journal corrections live in `AUTHOR_FIXES` and `JOURNAL_FIXES` at the top of `scripts/update_orcid.py`. The owner's name is unified as `Halabi D` and highlighted in author lists.
+
+ORCID does not store the owner's role in each grant or both language versions of a title, so those come from the CV in `GRANT_DETAILS`; `ORG_FIXES` updates funder names (CONICYT → ANID), and `EXTRA_GRANTS` adds grants that are missing from ORCID (each one is skipped automatically once ORCID lists the same grant number).
 
 If ORCID fails or a list drops below 80% of its previous size, the script exits with an error and changes nothing. After intentionally removing works from ORCID, run it with `ALLOW_SHRINK=1`.
 
 ### Automatic
-The workflow in `.github/workflows/` runs **every Sunday at 03:00 UTC** (and can be triggered manually from the Actions tab). It runs the Python script and commits any changes to `data/` and `index.html` with `[skip ci]`.
+The workflow in `.github/workflows/` runs **every Sunday at 03:00 UTC** (and can be triggered manually from the Actions tab). It runs the Python script and commits any changes to `data/`, `index.html` and `es/index.html` with `[skip ci]`.
 
 ### Manual
 ```bash
@@ -117,7 +132,7 @@ ORCID_ID="0000-0002-1474-8066" python scripts/update_orcid.py
 pip install Pillow
 python scripts/compress_images.py SRC images/NAME.webp --max-width 1000
 ```
-Then update the `<img>` `src`, `width` and `height` in `index.html`.
+Then update the `<img>` `src`, `width` and `height` in both pages.
 
 The ORCID iD is configurable via the `ORCID_ID` environment variable (defaults to the owner's iD).
 

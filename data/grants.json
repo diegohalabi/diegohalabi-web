@@ -1,20 +1,34 @@
 [
   {
+    "title": "Melatonin in Chilean berries: a chronobiotic gift of nature",
+    "type": "Grant",
+    "start_year": "2022",
+    "end_year": "2023",
+    "organization": "Universidad Austral de Chile (VIDCA)",
+    "grant_number": "VIDCA-INID210009-03",
+    "link": "https://orcid.org/0000-0002-1474-8066",
+    "role": "associate",
+    "title_es": "Melatonina en bayas chilenas: un regalo cronobiótico de la naturaleza"
+  },
+  {
     "title": "A white and brown balance of obesity; developmental programming of adipose tissue by chronodisruption",
     "type": "Grant",
     "start_year": "2019",
     "end_year": "2022",
-    "organization": "Comisión Nacional de Investigación Científica y Tecnológica",
+    "organization": "ANID (formerly CONICYT)",
     "grant_number": "FONDECYT 11190711",
-    "link": "https://orcid.org/0000-0002-1474-8066"
+    "link": "https://orcid.org/0000-0002-1474-8066",
+    "role": "pi"
   },
   {
     "title": "La fuente de la juventud: desarrollo de un suplemento antioxidante, antiinflamatorio y neuroregenerativo derivado del lúpulo para el rejuvenecimiento cerebral",
     "type": "Grant",
     "start_year": "2018",
     "end_year": "2020",
-    "organization": "Fondo de Fomento al Desarrollo Científico y Tecnológico",
+    "organization": "ANID (formerly CONICYT)",
     "grant_number": "FONDEF ID17AM0043",
-    "link": "https://orcid.org/0000-0002-1474-8066"
+    "link": "https://orcid.org/0000-0002-1474-8066",
+    "role": "postdoc",
+    "title_en": "The fountain of youth: development of an antioxidant, anti-inflammatory and neuroregenerative supplement derived from hops for brain rejuvenation"
   }
 ]

@@ -2,8 +2,8 @@
 """Sync publications and grants from the ORCID public API.
 
 Writes data/publications.json and data/grants.json, and renders both lists as
-static HTML into index.html (between the ORCID:* markers) so the content is
-indexable without JavaScript.
+static HTML into index.html and es/index.html (between the ORCID:* markers) so
+the content is indexable without JavaScript.
 
 Safety: nothing is written unless every request succeeded and the new lists
 pass sanity checks (non-empty, no sudden drop). Set ALLOW_SHRINK=1 to accept a
@@ -33,7 +33,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 PUBLICATIONS_FILE = os.path.join(DATA_DIR, "publications.json")
 GRANTS_FILE = os.path.join(DATA_DIR, "grants.json")
-INDEX_FILE = os.path.join(BASE_DIR, "index.html")
+# Pages that receive the rendered lists, by language
+INDEX_FILES = {
+    "en": os.path.join(BASE_DIR, "index.html"),
+    "es": os.path.join(BASE_DIR, "es", "index.html"),
+}
 
 # How the site owner's name is displayed (and highlighted) in author lists
 SELF_AUTHOR = "Halabi D"
@@ -54,6 +58,38 @@ JOURNAL_FIXES = {
     "nutricion hospitalaria": "Nutrición Hospitalaria",
     "revista odontológica mexicana órgano oficial de la facultad de odontología unam": "Revista Odontológica Mexicana",
 }
+
+# Funders renamed since the grants were awarded (CONICYT became ANID in 2020)
+ORG_FIXES = {
+    "Comisión Nacional de Investigación Científica y Tecnológica": "ANID (formerly CONICYT)",
+    "Fondo de Fomento al Desarrollo Científico y Tecnológico": "ANID (formerly CONICYT)",
+}
+
+# What ORCID does not store: the owner's role and titles in both languages (from the CV)
+GRANT_DETAILS = {
+    "FONDECYT 11190711": {"role": "pi"},
+    "FONDEF ID17AM0043": {
+        "role": "postdoc",
+        "title_en": "The fountain of youth: development of an antioxidant, anti-inflammatory and neuroregenerative supplement derived from hops for brain rejuvenation",
+    },
+    "VIDCA-INID210009-03": {
+        "role": "associate",
+        "title_es": "Melatonina en bayas chilenas: un regalo cronobiótico de la naturaleza",
+    },
+}
+
+# Grants missing from ORCID (from the CV). Skipped automatically once ORCID lists the same number.
+EXTRA_GRANTS = [
+    {
+        "title": "Melatonin in Chilean berries: a chronobiotic gift of nature",
+        "type": "Grant",
+        "start_year": "2022",
+        "end_year": "2023",
+        "organization": "Universidad Austral de Chile (VIDCA)",
+        "grant_number": "VIDCA-INID210009-03",
+        "link": f"https://orcid.org/{ORCID_ID}",
+    },
+]
 
 TITLE_SMALL_WORDS = {"a", "an", "and", "de", "del", "for", "in", "la", "of", "on", "the", "y"}
 
@@ -318,12 +354,17 @@ def fetch_grants(session, headers):
                     "type": display_type,
                     "start_year": start_year if start_year else "N/A",
                     "end_year": end_year if end_year else "Present",
-                    "organization": org_name if org_name else "Scientific Institution",
+                    "organization": ORG_FIXES.get(org_name, org_name) if org_name else "Scientific Institution",
                     "grant_number": grant_number if grant_number else "N/A",
                     "link": url
                 })
                 print(f"Processed grant [{i+1}/{len(groups)}]: {title[:50]}...")
                 break
+
+    listed = {g["grant_number"] for g in parsed_grants}
+    parsed_grants += [dict(g) for g in EXTRA_GRANTS if g["grant_number"] not in listed]
+    for grant in parsed_grants:
+        grant.update(GRANT_DETAILS.get(grant["grant_number"], {}))
 
     # Sort grants
     def sort_grants_key(grant):
@@ -354,8 +395,28 @@ def check_not_shrunk(label, new_items, path):
 
 
 # -------------------------------------------------------------------------
-# Static HTML rendering (keep markup in sync with the filter script in index.html)
+# Static HTML rendering (keep markup in sync with js/site.js, which filters it)
 # -------------------------------------------------------------------------
+LABELS = {
+    "en": {
+        "view_paper": "View Paper",
+        "count": lambda n: f"{n} item{'s' if n != 1 else ''} found",
+        "present": "Present",
+        "roles": {"pi": "Principal Investigator", "associate": "Associate Investigator", "postdoc": "Postdoctoral Researcher"},
+        "orgs": {},
+        "journals": {},
+    },
+    "es": {
+        "view_paper": "Ver artículo",
+        "count": lambda n: f"{n} resultado{'s' if n != 1 else ''}",
+        "present": "Actualidad",
+        "roles": {"pi": "Investigador Principal", "associate": "Investigador Asociado", "postdoc": "Investigador Postdoctoral"},
+        "orgs": {"ANID (formerly CONICYT)": "ANID (ex CONICYT)"},
+        "journals": {"ISRCTN Registry (trial registration)": "Registro ISRCTN (registro de ensayo)"},
+    },
+}
+
+
 def esc(value):
     return html.escape(str(value if value is not None else ''), quote=True)
 
@@ -374,15 +435,17 @@ def render_authors(authors):
     )
 
 
-def render_publication(pub, idx):
-    search_text = strip_accents(f"{pub['title']} {pub['authors']} {pub['journal']}").lower()
+def render_publication(pub, idx, lang):
+    L = LABELS[lang]
+    journal = L["journals"].get(pub['journal'], pub['journal'])
+    search_text = strip_accents(f"{pub['title']} {pub['authors']} {journal}").lower()
     doi_match = re.search(r'doi\.org/(10\.\d{4,9}/[-._;()/:A-Z0-9]+)', pub['link'], re.I)
     doi_html = ''
     if doi_match:
         doi = esc(doi_match.group(1))
-        doi_html = f'''
-                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: {doi}">DOI: {doi}</span>'''
-    return f'''          <article data-pub data-year="{esc(pub['year'])}" data-search="{esc(search_text)}" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+        doi_html = f"""
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: {doi}">DOI: {doi}</span>"""
+    return f"""          <article data-pub data-year="{esc(pub['year'])}" data-search="{esc(search_text)}" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
             <div class="space-y-2 flex-1">
               <div class="flex items-center space-x-2">
                 <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">{esc(pub['year'])}</span>
@@ -390,58 +453,58 @@ def render_publication(pub, idx):
               </div>
               <h3 class="text-base font-bold text-slate-900 dark:text-white">{esc(pub['title'])}</h3>
               <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">{render_authors(pub['authors'])}</p>
-              <p class="text-xs text-slate-500 dark:text-slate-400 italic">{esc(pub['journal'])}</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 italic">{esc(journal)}</p>
             </div>
             <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
-              <a href="{esc(safe_url(pub['link']))}" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-medium rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: {esc(pub['title'])}">
-                <span>View Paper</span>
+              <a href="{esc(safe_url(pub['link']))}" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-medium rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="{esc(L['view_paper'])}: {esc(pub['title'])}">
+                <span>{esc(L['view_paper'])}</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
               </a>{doi_html}
             </div>
-          </article>'''
+          </article>"""
 
 
-def render_grant(grant):
-    return f'''          <article class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
-            <div class="space-y-2 flex-1">
-              <div class="flex items-center space-x-2">
-                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">{esc(grant['start_year'])} - {esc(grant['end_year'])}</span>
-                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">ID: {esc(grant['grant_number'])}</span>
+def render_grant(grant, lang):
+    L = LABELS[lang]
+    title = grant.get(f"title_{lang}") or grant['title']
+    end_year = L["present"] if grant['end_year'] == "Present" else grant['end_year']
+    org = L["orgs"].get(grant['organization'], grant['organization'])
+    role = L["roles"].get(grant.get("role"), "")
+    role_html = f"""
+              <p class="text-xs font-semibold text-teal-700 dark:text-accentTeal">{esc(role)}</p>""" if role else ""
+    return f"""          <article class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200">
+            <div class="space-y-2">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">{esc(grant['start_year'])} - {esc(end_year)}</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">{esc(grant['grant_number'])}</span>
               </div>
-              <h3 class="text-base font-bold text-slate-900 dark:text-white">{esc(grant['title'])}</h3>
-              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">{esc(grant['organization'])}</p>
-              <p class="text-xs text-slate-500 dark:text-slate-400 italic">{esc(grant['type'])}</p>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">{esc(title)}</h3>{role_html}
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">{esc(org)}</p>
             </div>
-            <div class="flex sm:flex-col items-center sm:items-end justify-center w-full sm:w-auto self-center">
-              <a href="{esc(safe_url(grant['link']))}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center px-3 py-1.5 text-xs font-medium rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View grant: {esc(grant['title'])}">
-                <span>View Grant</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
-              </a>
-            </div>
-          </article>'''
+          </article>"""
 
 
-def replace_block(source, name, content):
+def replace_block(source, name, content, path):
     pattern = re.compile(rf'(<!-- ORCID:{name}:START -->)(.*?)(<!-- ORCID:{name}:END -->)', re.S)
     if not pattern.search(source):
-        raise SyncError(f"Marker ORCID:{name} not found in index.html")
+        raise SyncError(f"Marker ORCID:{name} not found in {os.path.relpath(path, BASE_DIR)}")
     return pattern.sub(lambda m: f"{m.group(1)}{content}{m.group(3)}", source, count=1)
 
 
 def render_index(publications, grants):
-    with open(INDEX_FILE, encoding="utf-8") as f:
-        source = f.read()
+    for lang, path in INDEX_FILES.items():
+        with open(path, encoding="utf-8") as f:
+            source = f.read()
 
-    pubs_html = "\n" + "\n".join(render_publication(p, i + 1) for i, p in enumerate(publications)) + "\n          "
-    grants_html = "\n" + "\n".join(render_grant(g) for g in grants) + "\n          "
-    count = len(publications)
+        pubs_html = "\n" + "\n".join(render_publication(p, i + 1, lang) for i, p in enumerate(publications)) + "\n          "
+        grants_html = "\n" + "\n".join(render_grant(g, lang) for g in grants) + "\n          "
 
-    source = replace_block(source, "PUBLICATIONS", pubs_html)
-    source = replace_block(source, "GRANTS", grants_html)
-    source = replace_block(source, "PUB_COUNT", f"{count} item{'s' if count != 1 else ''} found")
+        source = replace_block(source, "PUBLICATIONS", pubs_html, path)
+        source = replace_block(source, "GRANTS", grants_html, path)
+        source = replace_block(source, "PUB_COUNT", LABELS[lang]["count"](len(publications)), path)
 
-    with open(INDEX_FILE, "w", encoding="utf-8") as f:
-        f.write(source)
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(source)
 
 
 def write_json(path, items):
@@ -469,7 +532,7 @@ def main():
 
     write_json(PUBLICATIONS_FILE, publications)
     write_json(GRANTS_FILE, grants)
-    print(f"\nWrote {len(publications)} publications and {len(grants)} grants, and updated index.html")
+    print(f"\nWrote {len(publications)} publications and {len(grants)} grants, and updated the pages")
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./index.html', './scripts/update_orcid.py'],
+  content: ['./index.html', './es/index.html', './js/site.js', './scripts/update_orcid.py'],
   darkMode: 'class',
   theme: {
     extend: {
