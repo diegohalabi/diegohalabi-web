@@ -9,7 +9,70 @@
   <meta name="description" content="Professional portfolio of Dr. Diego Halabi. DDS, PhD in Medical Sciences, Head of the Department of Dentistry at Universidad Austral de Chile. Integrating biomedical research, data science, and software engineering.">
   <meta name="author" content="Dr. Diego Halabi">
   <meta name="robots" content="index, follow">
-  
+  <link rel="canonical" href="https://diegohalabi.cl/">
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <meta name="theme-color" content="#080c14">
+
+  <!-- Open Graph / Social previews -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://diegohalabi.cl/">
+  <meta property="og:title" content="Dr. Diego Halabi | Academic, Researcher & Developer">
+  <meta property="og:description" content="DDS, PhD in Medical Sciences. Head of the Department of Dentistry at Universidad Austral de Chile. Biomedical research, clinical epidemiology, and software.">
+  <meta property="og:image" content="https://diegohalabi.cl/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Dr. Diego Halabi, DDS, PhD. Head of the Department of Dentistry, Universidad Austral de Chile">
+  <meta property="og:locale" content="en_US">
+  <meta property="profile:first_name" content="Diego">
+  <meta property="profile:last_name" content="Halabi">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dr. Diego Halabi | Academic, Researcher & Developer">
+  <meta name="twitter:description" content="DDS, PhD in Medical Sciences. Head of the Department of Dentistry at Universidad Austral de Chile.">
+  <meta name="twitter:image" content="https://diegohalabi.cl/images/og-image.jpg">
+
+  <!-- Structured data (Person) for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Diego Halabi",
+    "honorificPrefix": "Dr.",
+    "honorificSuffix": "DDS, PhD",
+    "jobTitle": "Head of the Department of Dentistry",
+    "worksFor": {
+      "@type": "CollegeOrUniversity",
+      "name": "Universidad Austral de Chile",
+      "url": "https://www.uach.cl"
+    },
+    "url": "https://diegohalabi.cl/",
+    "image": "https://diegohalabi.cl/images/myself.jpg",
+    "email": "mailto:diego.halabi@uach.cl",
+    "identifier": {
+      "@type": "PropertyValue",
+      "propertyID": "ORCID",
+      "value": "0000-0002-1474-8066"
+    },
+    "sameAs": [
+      "https://orcid.org/0000-0002-1474-8066",
+      "https://scholar.google.com/citations?user=i-wf2mwAAAAJ",
+      "https://github.com/diegohalabi",
+      "https://www.linkedin.com/in/diegohalabi"
+    ],
+    "knowsAbout": [
+      "Chronobiology",
+      "Metabolic physiology",
+      "Developmental programming",
+      "Periodontal medicine",
+      "Clinical epidemiology",
+      "Biostatistics",
+      "Software engineering"
+    ]
+  }
+  </script>
+
   <!-- Theme init (runs before paint to avoid FOUC / theme flash) -->
   <script>
     (function () {
@@ -56,7 +119,7 @@
       <!-- Wrapper for mobile scrolling -->
       <div class="flex-1 flex items-center justify-start sm:justify-end overflow-x-auto no-scrollbar scroll-smooth">
         <nav class="flex items-center space-x-6 pr-2">
-          <a href="#about" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Profile</a>
+          <a href="#profile" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Profile</a>
           <a href="#research" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Research</a>
           <a href="#skills" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Skills</a>
           <a href="#projects" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-accentTeal transition-colors whitespace-nowrap">Projects</a>
@@ -126,14 +189,14 @@
           <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-teal-600 to-teal-400 dark:from-accentTeal dark:to-teal-500 opacity-20 dark:opacity-40 group-hover:opacity-75 blur transition-opacity duration-300"></div>
           <!-- Profile Pic Container -->
           <div class="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-white dark:border-brandDark bg-white dark:bg-brandDarkCard shadow-xl">
-            <img src="./images/myself.jpg" alt="Dr. Diego Halabi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
+            <img src="./images/myself.jpg" alt="Dr. Diego Halabi" width="600" height="600" fetchpriority="high" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
           </div>
         </div>
       </div>
     </section>
 
     <!-- Professional Profile Section -->
-    <section class="space-y-6">
+    <section id="profile" class="space-y-6 scroll-mt-20">
       <div class="flex items-center space-x-4">
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-mono flex items-center">
           <span class="text-teal-600 dark:text-accentTeal mr-2">01.</span>Profile
@@ -149,7 +212,7 @@
           <div class="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 items-start">
             <div class="md:col-span-3 text-slate-600 dark:text-slate-200 leading-relaxed font-sans text-sm md:text-base">
               <p>
-                I'm a clinician-scientist working at the intersection of chronobiology, metabolic physiology, and systemic health. For over a decade I've studied how circadian disruption during pregnancy (chronodisruption) programs metabolic and cardiovascular disease in the offspring (and how maternal melatonin can reverse it). This work has been published in journals such as the <em>Journal of Physiology</em>, <em>Journal of Pineal Research</em>, and <em>Frontiers in Endocrinology</em>.
+                I'm a clinician-scientist working at the intersection of chronobiology, metabolic physiology, and systemic health. For over a decade I've studied how circadian disruption during pregnancy (chronodisruption) programs metabolic and cardiovascular disease in the offspring (and how maternal melatonin can prevent it in animal models). This work has been published in journals such as the <em>Journal of Physiology</em>, <em>Journal of Pineal Research</em>, and <em>Frontiers in Endocrinology</em>.
               </p>
             </div>
             <div class="md:col-span-2">
@@ -157,7 +220,7 @@
                 <!-- Glow Backdrop -->
                 <div class="absolute -inset-1 rounded-lg bg-gradient-to-r from-teal-600 to-teal-400 dark:from-accentTeal dark:to-teal-500 opacity-20 dark:opacity-30 group-hover:opacity-60 blur-md transition-opacity duration-300"></div>
                 <div class="relative rounded-lg overflow-hidden border border-slate-200 dark:border-brandDarkBorder shadow-md">
-                  <img src="./images/adipocites.png" alt="Fluorescent adipocytes" class="w-full aspect-[3/2] object-cover transition-transform duration-300 group-hover:scale-[1.02]" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
+                  <img src="./images/adipocites.webp" alt="Fluorescent adipocytes" width="800" height="584" loading="lazy" decoding="async" class="w-full aspect-[3/2] object-cover transition-transform duration-300 group-hover:scale-[1.02]" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
                 </div>
               </figure>
             </div>
@@ -187,7 +250,7 @@
           <div class="md:col-span-5">
             <figure class="group">
               <div class="h-56 md:h-72 flex items-center justify-center overflow-hidden">
-                <img src="./images/rstudio.png" alt="Cosinor model fit in RStudio" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-[1.02]" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
+                <img src="./images/rstudio.webp" alt="Cosinor model fit in RStudio" width="800" height="617" loading="lazy" decoding="async" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-[1.02]" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
               </div>
               <figcaption class="mt-2 text-xs font-mono text-slate-500 dark:text-slate-500 text-center">Cosinor model fit in R. Quantifying circadian rhythms.</figcaption>
             </figure>
@@ -250,7 +313,7 @@
                     Laboratory &amp; Surgical Techniques
                   </h3>
                   <p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
-                    Advanced proficiency in cell culture and experimental surgery techniques (in vivo models in humans and rodents).
+                    Advanced proficiency in cell culture and experimental surgery in rodent models (in vivo).
                   </p>
                 </div>
               </div>
@@ -345,7 +408,7 @@
             <!-- Image Column -->
             <div class="md:col-span-6 flex justify-center items-center">
               <figure class="group w-full flex flex-col items-center">
-                <img src="./images/evalumina.png" alt="EvaLumina application interface" class="w-full max-h-[280px] md:max-h-[360px] object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.02]" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
+                <img src="./images/evalumina.webp" alt="EvaLumina application interface" width="1000" height="785" loading="lazy" decoding="async" class="w-full max-h-[280px] md:max-h-[360px] object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.02]" onerror="this.onerror=null;this.src='./images/placeholder.svg'">
                 <figcaption class="mt-3 text-xs font-mono text-slate-500 dark:text-slate-500 text-center">EvaLumina. Automated OMR exam grading.</figcaption>
               </figure>
             </div>
@@ -533,7 +596,7 @@
           <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500 dark:text-slate-500">
             <i class="fa-solid fa-magnifying-glass text-xs"></i>
           </span>
-          <input id="search-input" type="text" placeholder="Search by title, authors, or journal..." class="w-full pl-9 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 dark:bg-brandDark dark:border-brandDarkBorder rounded-lg focus:outline-none focus:border-teal-500 dark:focus:border-accentTeal text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 font-mono transition-colors">
+          <input id="search-input" type="search" aria-label="Search publications" placeholder="Search by title, authors, or journal..." class="w-full pl-9 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 dark:bg-brandDark dark:border-brandDarkBorder rounded-lg focus:outline-none focus:border-teal-500 dark:focus:border-accentTeal text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 font-mono transition-colors">
         </div>
         
         <div class="flex items-center gap-2">
@@ -553,23 +616,444 @@
             <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
             <span>Synced from ORCID</span>
           </div>
-          <span id="pub-count" class="text-slate-500">0 items found</span>
+          <span id="pub-count" class="text-slate-500" aria-live="polite"><!-- ORCID:PUB_COUNT:START -->24 items found<!-- ORCID:PUB_COUNT:END --></span>
         </div>
 
         <!-- Inner Content Area -->
         <div class="divide-y divide-slate-200 dark:divide-brandDarkBorder" id="publications-container">
-          
-          <!-- Loading State (Skeleton) -->
-          <div class="p-6 space-y-4 animate-pulse" id="loading-state">
-            <div class="flex items-center justify-between">
-              <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-1/4"></div>
-              <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-1/12"></div>
+          <!-- Generated by scripts/update_orcid.py from ORCID. Do not edit by hand. -->
+          <!-- ORCID:PUBLICATIONS:START -->
+          <article data-pub data-year="2026" data-search="asociacion entre obesidad abdominal con severidad en periodontitis en una poblacion chilena. estudio de corte transversal juarez-membreno a, cespedes-barrientos mj, aros-munoz y, halabi d revista odontologica mexicana" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2026</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#1</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Asociación entre obesidad abdominal con severidad en periodontitis en una población chilena. Estudio de corte transversal</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Juárez-Membreño A, Céspedes-Barrientos MJ, Aros-Muñoz Y, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong></p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Revista Odontológica Mexicana</p>
             </div>
-            <div class="h-5 bg-slate-200 dark:bg-slate-700/50 rounded w-11/12"></div>
-            <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-2/3"></div>
-            <div class="h-3 bg-slate-200 dark:bg-slate-700/50 rounded w-1/2"></div>
-          </div>
-          
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.22201/fo.1870199xp.2026.30.3.96581" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Asociación entre obesidad abdominal con severidad en periodontitis en una población chilena. Estudio de corte transversal">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.22201/fo.1870199xp.2026.30.3.96581">DOI: 10.22201/fo.1870199xp.2026.30.3.96581</span>
+            </div>
+          </article>
+          <article data-pub data-year="2026" data-search="prognostic value of neutrophil-to-lymphocyte ratio and tumor-infiltrating lymphocytes (tils), for patients with triple-negative breast cancer soto m, poblete mt, ehrenfeld p, halabi d cancer investigation" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2026</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#2</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Prognostic Value of Neutrophil-to-Lymphocyte Ratio and Tumor-Infiltrating Lymphocytes (TILs), for Patients with Triple-Negative Breast Cancer</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Soto M, Poblete MT, Ehrenfeld P, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong></p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Cancer Investigation</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.1080/07357907.2025.2612595" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Prognostic Value of Neutrophil-to-Lymphocyte Ratio and Tumor-Infiltrating Lymphocytes (TILs), for Patients with Triple-Negative Breast Cancer">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.1080/07357907.2025.2612595">DOI: 10.1080/07357907.2025.2612595</span>
+            </div>
+          </article>
+          <article data-pub data-year="2024" data-search="sex-specific metabolic effects of gestational chronodisruption and maternal melatonin supplementation in rat offspring mendez n, corvalan f, halabi d, vasquez a, vergara k, noriega h, ehrenfeld p, sanhueza k, seron-ferre m, valenzuela gj, torres-farfan c journal of pineal research" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2024</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#3</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Sex-Specific Metabolic Effects of Gestational Chronodisruption and Maternal Melatonin Supplementation in Rat Offspring</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Mendez N, Corvalan F, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Vasquez A, Vergara K, Noriega H, Ehrenfeld P, Sanhueza K, Seron-Ferre M, Valenzuela GJ, Torres-Farfan C</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Journal of Pineal Research</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.1111/jpi.70015" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Sex-Specific Metabolic Effects of Gestational Chronodisruption and Maternal Melatonin Supplementation in Rat Offspring">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.1111/jpi.70015">DOI: 10.1111/jpi.70015</span>
+            </div>
+          </article>
+          <article data-pub data-year="2023" data-search="difference in receptor activator of nuclear factor k b expression in tumoral tissue by different periodontal pathogens maher a, munoz dn, pavicic mf, gonzalez m, ehrenfeld p, halabi d, munoz-kramm a, munoz h international journal of morphology" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2023</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#4</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Difference in Receptor Activator of Nuclear Factor k B Expression in Tumoral Tissue by Different Periodontal Pathogens</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Maher A, Munoz DN, Pavicic MF, Gonzalez M, Ehrenfeld P, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Munoz-Kramm A, Munoz H</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">International Journal of Morphology</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://publons.com/wos-op/publon/61677396/" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Difference in Receptor Activator of Nuclear Factor k B Expression in Tumoral Tissue by Different Periodontal Pathogens">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+          <article data-pub data-year="2023" data-search="from gestational chronodisruption to noncommunicable diseases: pathophysiological mechanisms of programming of adult diseases, and the potential therapeutic role of melatonin mendez n, corvalan f, halabi d, ehrenfeld p, maldonado r, vergara k, seron-ferre m, torres-farfan c journal of pineal research" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2023</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#5</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">From gestational chronodisruption to noncommunicable diseases: Pathophysiological mechanisms of programming of adult diseases, and the potential therapeutic role of melatonin</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Mendez N, Corvalan F, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Ehrenfeld P, Maldonado R, Vergara K, Seron-Ferre M, Torres-Farfan C</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Journal of Pineal Research</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.1111/jpi.12908" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: From gestational chronodisruption to noncommunicable diseases: Pathophysiological mechanisms of programming of adult diseases, and the potential therapeutic role of melatonin">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.1111/jpi.12908">DOI: 10.1111/jpi.12908</span>
+            </div>
+          </article>
+          <article data-pub data-year="2022" data-search="effects of exercise on irisin in subjects with overweight or obesity. a systematic review of clinical studies bernal-rivas c, llamunao-tropa a, reyes-barria a, halabi d, pavicic f, ehrenfeld p, martinez-huenchullan s nutricion hospitalaria" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2022</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#6</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Effects of exercise on irisin in subjects with overweight or obesity. A systematic review of clinical studies</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Bernal-Rivas C, Llamunao-Tropa A, Reyes-Barria A, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Pavicic F, Ehrenfeld P, Martinez-Huenchullan S</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Nutrición Hospitalaria</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.20960/nh.04202" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Effects of exercise on irisin in subjects with overweight or obesity. A systematic review of clinical studies">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.20960/nh.04202">DOI: 10.20960/nh.04202</span>
+            </div>
+          </article>
+          <article data-pub data-year="2022" data-search="maternal melatonin treatment rescues endocrine, inflammatory, and transcriptional deregulation in the adult rat female offspring from gestational chronodisruption mendez n, halabi d, salazar-petres er, vergara k, corvalan f, richter hg, bastidas c, bascur p, ehrenfeld p, seron-ferre m, torres-farfan c frontiers in neuroscience" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2022</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#7</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Maternal melatonin treatment rescues endocrine, inflammatory, and transcriptional deregulation in the adult rat female offspring from gestational chronodisruption</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Mendez N, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Salazar-Petres ER, Vergara K, Corvalan F, Richter HG, Bastidas C, Bascur P, Ehrenfeld P, Seron-Ferre M, Torres-Farfan C</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Frontiers in Neuroscience</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.3389/fnins.2022.1039977" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Maternal melatonin treatment rescues endocrine, inflammatory, and transcriptional deregulation in the adult rat female offspring from gestational chronodisruption">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.3389/fnins.2022.1039977">DOI: 10.3389/fnins.2022.1039977</span>
+            </div>
+          </article>
+          <article data-pub data-year="2022" data-search="new integrative approaches to discovery of pathophysiological mechanisms triggered by night shift work richter hg, mendez n, halabi d, torres-farfan c, spichiger c chronobiology international" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2022</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#8</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">New integrative approaches to discovery of pathophysiological mechanisms triggered by night shift work</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Richter HG, Mendez N, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Torres-Farfan C, Spichiger C</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Chronobiology International</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.1080/07420528.2021.1994984" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: New integrative approaches to discovery of pathophysiological mechanisms triggered by night shift work">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.1080/07420528.2021.1994984">DOI: 10.1080/07420528.2021.1994984</span>
+            </div>
+          </article>
+          <article data-pub data-year="2021" data-search="maternal chronodisruption throughout pregnancy impairs glucose homeostasis and adipose tissue physiology in the male rat offspring halabi d, richter hg, mendez n, kahne t, spichiger c, salazar e, torres f, vergara k, seron-ferre m, torres-farfan c frontiers in endocrinology" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2021</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#9</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Maternal Chronodisruption Throughout Pregnancy Impairs Glucose Homeostasis and Adipose Tissue Physiology in the Male Rat Offspring</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed"><strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Richter HG, Mendez N, Kahne T, Spichiger C, Salazar E, Torres F, Vergara K, Seron-Ferre M, Torres-Farfan C</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Frontiers in Endocrinology</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.3389/fendo.2021.678468" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Maternal Chronodisruption Throughout Pregnancy Impairs Glucose Homeostasis and Adipose Tissue Physiology in the Male Rat Offspring">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.3389/fendo.2021.678468">DOI: 10.3389/fendo.2021.678468</span>
+            </div>
+          </article>
+          <article data-pub data-year="2020" data-search="fetal programming of adipose tissue function by gestational chronodisruption halabi d, ehrenfeld p, mendez n, richter hg, torres-farfan c sleep science" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2020</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#10</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Fetal programming of adipose tissue function by gestational chronodisruption</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed"><strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Ehrenfeld P, Mendez N, Richter HG, Torres-Farfan C</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Sleep Science</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.5935/1984-0063.20200014" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Fetal programming of adipose tissue function by gestational chronodisruption">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.5935/1984-0063.20200014">DOI: 10.5935/1984-0063.20200014</span>
+            </div>
+          </article>
+          <article data-pub data-year="2019" data-search="fetal programming of renal dysfunction and high blood pressure by chronodisruption mendez n, torres-farfan c, salazar e, bascur p, bastidas c, vergara k, spichiger c, halabi d, vio cp, richter hg frontiers in endocrinology" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2019</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#11</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Fetal Programming of Renal Dysfunction and High Blood Pressure by Chronodisruption</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Mendez N, Torres-Farfan C, Salazar E, Bascur P, Bastidas C, Vergara K, Spichiger C, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Vio CP, Richter HG</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Frontiers in Endocrinology</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.3389/fendo.2019.00362" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Fetal Programming of Renal Dysfunction and High Blood Pressure by Chronodisruption">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.3389/fendo.2019.00362">DOI: 10.3389/fendo.2019.00362</span>
+            </div>
+          </article>
+          <article data-pub data-year="2019" data-search="pericytes favor oligodendrocyte fate choice in adult neural stem cells silva me, lange s, hinrichsen b, philp ar, reyes cr, halabi d, mansilla jb, rotheneichner p, de la fuente ag, couillard-despres s, batiz lf, franklin rjm, aigner l, rivera fj frontiers in cellular neuroscience" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2019</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#12</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Pericytes Favor Oligodendrocyte Fate Choice in Adult Neural Stem Cells</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Silva ME, Lange S, Hinrichsen B, Philp AR, Reyes CR, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Mansilla JB, Rotheneichner P, de la Fuente AG, Couillard-Despres S, Batiz LF, Franklin RJM, Aigner L, Rivera FJ</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Frontiers in Cellular Neuroscience</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.3389/fncel.2019.00085" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Pericytes Favor Oligodendrocyte Fate Choice in Adult Neural Stem Cells">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.3389/fncel.2019.00085">DOI: 10.3389/fncel.2019.00085</span>
+            </div>
+          </article>
+          <article data-pub data-year="2019" data-search="soluble factors derived from brain pericytes promote neural stem cells to generate oligodendrocytes rivera fj, silva me, lange s, hinrichsen b, philp ar, reyes cr, halabi d, mansilla j, rotheneichner p, de la fuente ag, couillard-despres s, batiz lf, franklin rj, aigner l glia" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2019</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#13</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Soluble factors derived from brain pericytes promote neural stem cells to generate oligodendrocytes</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Rivera FJ, Silva ME, Lange S, Hinrichsen B, Philp AR, Reyes CR, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Mansilla J, Rotheneichner P, de la Fuente AG, Couillard-Despres S, Batiz LF, Franklin RJ, Aigner L</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Glia</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://publons.com/wos-op/publon/33739975/" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Soluble factors derived from brain pericytes promote neural stem cells to generate oligodendrocytes">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+          <article data-pub data-year="2018" data-search="calidad metodologica de estudios clinicos de ortodoncia publicados entre 2012-2016 ruiz chaura c, ulloa riffo n, halabi d, munoz martinez hd odontoestomatologia" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2018</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#14</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Calidad metodológica de estudios clínicos de ortodoncia publicados entre 2012-2016</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Ruiz Chaura C, Ulloa Riffo N, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Muñoz Martínez HD</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Odontoestomatología</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.22592/ode2018n31a4" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Calidad metodológica de estudios clínicos de ortodoncia publicados entre 2012-2016">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.22592/ode2018n31a4">DOI: 10.22592/ode2018n31a4</span>
+            </div>
+          </article>
+          <article data-pub data-year="2018" data-search="chlorhexidine for prevention of alveolar osteitis: a randomised clinical trial halabi d, escobar j, alvarado c, martinez n, munoz c journal of applied oral science" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2018</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#15</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Chlorhexidine for prevention of alveolar osteitis: a randomised clinical trial</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed"><strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Escobar J, Alvarado C, Martinez N, Munoz C</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Journal of Applied Oral Science</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.1590/1678-7757-2017-0245" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Chlorhexidine for prevention of alveolar osteitis: a randomised clinical trial">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.1590/1678-7757-2017-0245">DOI: 10.1590/1678-7757-2017-0245</span>
+            </div>
+          </article>
+          <article data-pub data-year="2018" data-search="design and validation of a basic dental psychomotor skills test for novice dental students segura c, halabi d, navarro n journal of dental education" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2018</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#16</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Design and Validation of a Basic Dental Psychomotor Skills Test for Novice Dental Students</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Segura C, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Navarro N</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Journal of Dental Education</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.21815/jde.018.111" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Design and Validation of a Basic Dental Psychomotor Skills Test for Novice Dental Students">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.21815/jde.018.111">DOI: 10.21815/jde.018.111</span>
+            </div>
+          </article>
+          <article data-pub data-year="2018" data-search="gestational chronodisruption leads to persistent changes in the rat fetal and adult adrenal clock and function salazar er, richter hg, spichiger c, mendez n, halabi d, vergara k, alonso ip, corvalan fa, azpeleta c, seron-ferre m, torres-farfan c the journal of physiology" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2018</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#17</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Gestational chronodisruption leads to persistent changes in the rat fetal and adult adrenal clock and function</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Salazar ER, Richter HG, Spichiger C, Mendez N, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Vergara K, Alonso IP, Corvalan FA, Azpeleta C, Seron-Ferre M, Torres-Farfan C</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">The Journal of Physiology</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.1113/jp276083" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Gestational chronodisruption leads to persistent changes in the rat fetal and adult adrenal clock and function">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.1113/jp276083">DOI: 10.1113/jp276083</span>
+            </div>
+          </article>
+          <article data-pub data-year="2017" data-search="gestational chronodisruption impairs circadian physiology in rat male offspring, increasing the risk of chronic disease torres-farfan c, mendez n, halabi d, spichiger c, salazar er, vergara k, richter hg placenta" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2017</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#18</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">GESTATIONAL CHRONODISRUPTION IMPAIRS CIRCADIAN PHYSIOLOGY IN RAT MALE OFFSPRING, INCREASING THE RISK OF CHRONIC DISEASE</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Torres-Farfan C, Mendez N, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Spichiger C, Salazar ER, Vergara K, Richter HG</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Placenta</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.1016/j.placenta.2017.01.023" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: GESTATIONAL CHRONODISRUPTION IMPAIRS CIRCADIAN PHYSIOLOGY IN RAT MALE OFFSPRING, INCREASING THE RISK OF CHRONIC DISEASE">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.1016/j.placenta.2017.01.023">DOI: 10.1016/j.placenta.2017.01.023</span>
+            </div>
+          </article>
+          <article data-pub data-year="2016" data-search="chlorhexidine mouthwash for the prevention of alveolar osteitis after oral surgery halabi d isrctn registry (trial registration)" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2016</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#19</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Chlorhexidine mouthwash for the prevention of alveolar osteitis after oral surgery</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed"><strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong></p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">ISRCTN Registry (trial registration)</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.1186/isrctn14646628" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Chlorhexidine mouthwash for the prevention of alveolar osteitis after oral surgery">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.1186/isrctn14646628">DOI: 10.1186/isrctn14646628</span>
+            </div>
+          </article>
+          <article data-pub data-year="2016" data-search="gestational chronodisruption impairs circadian physiology in rat male offspring, increasing the risk of chronic disease mendez n, halabi d, spichiger c, salazar er, vergara k, alonso-vasquez p, carmona p, sarmiento jm, richter hg, seron-ferre m, torres-farfan c endocrinology" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2016</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#20</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Gestational Chronodisruption Impairs Circadian Physiology in Rat Male Offspring, Increasing the Risk of Chronic Disease</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Mendez N, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Spichiger C, Salazar ER, Vergara K, Alonso-Vasquez P, Carmona P, Sarmiento JM, Richter HG, Seron-Ferre M, Torres-Farfan C</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Endocrinology</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.1210/en.2016-1282" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Gestational Chronodisruption Impairs Circadian Physiology in Rat Male Offspring, Increasing the Risk of Chronic Disease">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.1210/en.2016-1282">DOI: 10.1210/en.2016-1282</span>
+            </div>
+          </article>
+          <article data-pub data-year="2015" data-search="comparison of marginal adaptation between a monoincremental resin with sonic activation and a conventional resin villa j, meier r, ruiz p, halabi d journal of oral research" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2015</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#21</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Comparison of marginal adaptation between a monoincremental resin with sonic activation and a conventional resin</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Villa J, Meier R, Ruiz P, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong></p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Journal of Oral Research</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.17126/joralres.2015.074" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Comparison of marginal adaptation between a monoincremental resin with sonic activation and a conventional resin">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.17126/joralres.2015.074">DOI: 10.17126/joralres.2015.074</span>
+            </div>
+          </article>
+          <article data-pub data-year="2015" data-search="prevalence of neuropathic symptoms in patients referred for temporomandibular disorder in a chilean hospital, 2014-2015 miranda s, gayoso c, ruiz p, halabi d journal of oral research" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2015</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#22</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Prevalence of neuropathic symptoms in patients referred for temporomandibular disorder in a Chilean hospital, 2014-2015</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Miranda S, Gayoso C, Ruiz P, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong></p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Journal of Oral Research</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.17126/joralres.2015.051" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Prevalence of neuropathic symptoms in patients referred for temporomandibular disorder in a Chilean hospital, 2014-2015">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.17126/joralres.2015.051">DOI: 10.17126/joralres.2015.051</span>
+            </div>
+          </article>
+          <article data-pub data-year="2014" data-search="association between abdominal obesity and periodontal disease. cross-sectional study juarez i, hernandez m, letelier c, halabi d, araneda c journal of oral research" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2014</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#23</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Association between abdominal obesity and periodontal disease. Cross-sectional study</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Juarez I, Hernández M, Letelier C, <strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Araneda C</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Journal of Oral Research</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.17126/joralres.2015.021" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Association between abdominal obesity and periodontal disease. Cross-sectional study">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.17126/joralres.2015.021">DOI: 10.17126/joralres.2015.021</span>
+            </div>
+          </article>
+          <article data-pub data-year="2012" data-search="logistic regression analysis of risk factors for the development of alveolar osteitis halabi d, escobar j, munoz c, uribe s journal of oral and maxillofacial surgery" class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2012</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">#24</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">Logistic Regression Analysis of Risk Factors for the Development of Alveolar Osteitis</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed"><strong class="font-semibold text-slate-900 dark:text-slate-200">Halabi D</strong>, Escobar J, Muñoz C, Uribe S</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Journal of Oral and Maxillofacial Surgery</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+              <a href="https://doi.org/10.1016/j.joms.2011.11.024" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View paper: Logistic Regression Analysis of Risk Factors for the Development of Alveolar Osteitis">
+                <span>View Paper</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-500 truncate max-w-[140px]" title="DOI: 10.1016/j.joms.2011.11.024">DOI: 10.1016/j.joms.2011.11.024</span>
+            </div>
+          </article>
+          <!-- ORCID:PUBLICATIONS:END -->
         </div>
 
         <!-- Pagination / Show More Controls -->
@@ -614,15 +1098,43 @@
 
         <!-- Render list -->
         <div class="divide-y divide-slate-200 dark:divide-brandDarkBorder" id="grants-container">
-          <!-- Loading State (Skeleton) -->
-          <div class="p-6 space-y-4 animate-pulse">
-            <div class="flex items-center justify-between">
-              <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-1/4"></div>
-              <div class="h-4 bg-slate-200 dark:bg-slate-700/50 rounded w-1/12"></div>
+          <!-- Generated by scripts/update_orcid.py from ORCID. Do not edit by hand. -->
+          <!-- ORCID:GRANTS:START -->
+          <article class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2019 - 2022</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">ID: FONDECYT 11190711</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">A white and brown balance of obesity; developmental programming of adipose tissue by chronodisruption</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Comisión Nacional de Investigación Científica y Tecnológica</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Grant</p>
             </div>
-            <div class="h-5 bg-slate-200 dark:bg-slate-700/50 rounded w-11/12"></div>
-            <div class="h-3 bg-slate-200 dark:bg-slate-700/50 rounded w-1/2"></div>
-          </div>
+            <div class="flex sm:flex-col items-center sm:items-end justify-center w-full sm:w-auto self-center">
+              <a href="https://orcid.org/0000-0002-1474-8066" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View grant: A white and brown balance of obesity; developmental programming of adipose tissue by chronodisruption">
+                <span>View Grant</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+          <article class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-200 flex flex-col sm:flex-row items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">2018 - 2020</span>
+                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">ID: FONDEF ID17AM0043</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">La fuente de la juventud: desarrollo de un suplemento antioxidante, antiinflamatorio y neuroregenerativo derivado del lúpulo para el rejuvenecimiento cerebral</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">Fondo de Fomento al Desarrollo Científico y Tecnológico</p>
+              <p class="text-xs font-mono text-slate-500 dark:text-slate-400 italic">Grant</p>
+            </div>
+            <div class="flex sm:flex-col items-center sm:items-end justify-center w-full sm:w-auto self-center">
+              <a href="https://orcid.org/0000-0002-1474-8066" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" aria-label="View grant: La fuente de la juventud: desarrollo de un suplemento antioxidante, antiinflamatorio y neuroregenerativo derivado del lúpulo para el rejuvenecimiento cerebral">
+                <span>View Grant</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+          <!-- ORCID:GRANTS:END -->
         </div>
 
       </div>
@@ -667,76 +1179,33 @@
     });
 
     // -------------------------------------------------------------
-    // 2. Asynchronous Publication Fetching & Reactive System
+    // 2. Publication Search, Year Filter & Pagination
     // -------------------------------------------------------------
-    let allPublications = [];
-    let displayedPublications = [];
-    let limit = 5;
+    // Publications and grants are rendered as static HTML by scripts/update_orcid.py
+    // (indexable without JavaScript); here we only filter and paginate those items.
+    const PAGE_SIZE = 5;
     let showingAll = false;
-    let selectedYear = 'all';
-    let searchQuery = '';
 
-    // Escape untrusted data (titles, authors, links from the ORCID API) before
-    // injecting it into innerHTML, to prevent HTML/markup injection.
-    function escapeHtml(value) {
-      return String(value ?? '').replace(/[&<>"']/g, (c) => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-      }[c]));
-    }
-
-    // Allow only safe URL schemes for links; neutralize anything else
-    // (e.g. javascript:), which escapeHtml alone would not catch.
-    function safeUrl(value) {
-      const url = String(value ?? '').trim();
-      return /^(https?:|mailto:)/i.test(url) ? url : '#';
-    }
-
-    const container = document.getElementById('publications-container');
+    const pubItems = Array.from(document.querySelectorAll('#publications-container [data-pub]'));
     const countLabel = document.getElementById('pub-count');
     const searchInput = document.getElementById('search-input');
     const yearSelect = document.getElementById('year-select');
     const showMoreBtn = document.getElementById('btn-show-more');
     const paginationControls = document.getElementById('pagination-controls');
+    const emptyState = document.createElement('div');
+    emptyState.className = 'hidden p-8 text-center text-slate-500 font-mono text-sm';
+    emptyState.innerHTML = '<i class="fa-solid fa-folder-open text-slate-600 text-lg mb-2 block" aria-hidden="true"></i>No publications found matching your criteria.';
+    document.getElementById('publications-container').appendChild(emptyState);
 
-    // Fetch publications.json asynchronously
-    async function loadPublications() {
-      try {
-        const response = await fetch('./data/publications.json');
-        if (!response.ok) {
-          throw new Error('Failed to load local publications data');
-        }
-        allPublications = await response.json();
-      } catch (error) {
-        console.warn('Failed to load publications:', error);
-        const isFile = window.location.protocol === 'file:';
-        container.innerHTML = `
-          <div class="p-6 text-center text-slate-500 font-mono text-sm">
-            <i class="fa-solid fa-circle-exclamation text-rose-500 text-lg mb-2 block"></i>
-            ${isFile
-              ? 'Open this page via a web server or the deployed site to load publications.'
-              : 'Failed to load scientific publications.'} <br>
-            <span class="text-xs text-slate-500 mt-1 block">Please view my profile directly on ORCID.</span>
-          </div>
-        `;
-        return;
-      }
-
-      // Populate years in drop-down list
-      populateYearsDropdown();
-      
-      // Render publications
-      filterAndRender();
+    // Case- and accent-insensitive matching ("halabi" finds "Halabí")
+    function normalize(text) {
+      return text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
     }
 
     function populateYearsDropdown() {
-      // Find all unique years and sort descending
-      const years = [...new Set(allPublications.map(p => p.year))]
+      const years = [...new Set(pubItems.map(el => el.dataset.year))]
         .filter(y => y && y !== 'N/A')
         .sort((a, b) => parseInt(b) - parseInt(a));
-      
-      // Clear previous options except the first one
-      yearSelect.innerHTML = '<option value="all">ALL YEARS</option>';
-      
       years.forEach(year => {
         const option = document.createElement('option');
         option.value = year;
@@ -745,190 +1214,44 @@
       });
     }
 
-    // Filter publications by Search query and selected Year
     function filterAndRender() {
-      searchQuery = searchInput.value.toLowerCase().trim();
-      selectedYear = yearSelect.value;
+      const query = normalize(searchInput.value);
+      const year = yearSelect.value;
+      const matches = pubItems.filter(el =>
+        el.dataset.search.includes(query) && (year === 'all' || el.dataset.year === year)
+      );
 
-      displayedPublications = allPublications.filter(pub => {
-        const matchesSearch = 
-          pub.title.toLowerCase().includes(searchQuery) ||
-          pub.authors.toLowerCase().includes(searchQuery) ||
-          pub.journal.toLowerCase().includes(searchQuery);
-        
-        const matchesYear = (selectedYear === 'all' || pub.year === selectedYear);
+      pubItems.forEach(el => el.classList.add('hidden'));
+      const visible = showingAll ? matches : matches.slice(0, PAGE_SIZE);
+      visible.forEach(el => el.classList.remove('hidden'));
 
-        return matchesSearch && matchesYear;
-      });
+      countLabel.textContent = `${matches.length} item${matches.length !== 1 ? 's' : ''} found`;
+      emptyState.classList.toggle('hidden', matches.length > 0);
 
-      // Update count
-      countLabel.textContent = `${displayedPublications.length} item${displayedPublications.length !== 1 ? 's' : ''} found`;
-
-      // Render
-      renderList();
+      const remaining = matches.length - visible.length;
+      paginationControls.classList.toggle('hidden', remaining <= 0);
+      if (remaining > 0) {
+        showMoreBtn.innerHTML = `Show More Publications (${remaining}) <i class="fa-solid fa-angle-down ml-1" aria-hidden="true"></i>`;
+      }
     }
 
-    // Render list according to limits and layout
-    function renderList() {
-      if (displayedPublications.length === 0) {
-        container.innerHTML = `
-          <div class="p-8 text-center text-slate-500 font-mono text-sm">
-            <i class="fa-solid fa-folder-open text-slate-600 dark:text-slate-600 text-lg mb-2 block"></i>
-            No publications found matching your criteria.
-          </div>
-        `;
-        paginationControls.classList.add('hidden');
-        return;
-      }
-
-      // Check if we need pagination buttons
-      if (displayedPublications.length > limit && !showingAll) {
-        paginationControls.classList.remove('hidden');
-        showMoreBtn.innerHTML = `Show More Publications (${displayedPublications.length - limit}) <i class="fa-solid fa-angle-down ml-1"></i>`;
-      } else {
-        paginationControls.classList.add('hidden');
-      }
-
-      const itemsToRender = showingAll ? displayedPublications : displayedPublications.slice(0, limit);
-
-      container.innerHTML = itemsToRender.map((pub, idx) => {
-        const doiMatch = pub.link.match(/doi\.org\/(10\.\d{4,9}\/[-._;()/:A-Z0-9]+)/i);
-        const doiText = doiMatch ? doiMatch[1] : null;
-
-        return `
-          <div class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-250 flex flex-col sm:flex-row items-start justify-between gap-4">
-            <div class="space-y-2 flex-1">
-              <div class="flex items-center space-x-2">
-                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">
-                  ${escapeHtml(pub.year)}
-                </span>
-                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">
-                  #${idx + 1}
-                </span>
-              </div>
-              <h4 class="text-base font-bold text-slate-900 dark:text-white transition-colors">
-                ${escapeHtml(pub.title)}
-              </h4>
-              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
-                ${escapeHtml(pub.authors)}
-              </p>
-              <p class="text-xs font-mono text-slate-500 dark:text-slate-500 italic">
-                ${escapeHtml(pub.journal)}
-              </p>
-            </div>
-
-            <div class="flex sm:flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
-              <a href="${escapeHtml(safeUrl(pub.link))}" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" title="Open Publication Link">
-                <span>View Paper</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-              </a>
-              ${doiText ? `
-                <span class="hidden sm:inline-block text-[10px] font-mono text-slate-500 dark:text-slate-600 truncate max-w-[140px]" title="DOI: ${escapeHtml(doiText)}">
-                  DOI: ${escapeHtml(doiText)}
-                </span>
-              ` : ''}
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    // Wire up events
     searchInput.addEventListener('input', () => {
-      showingAll = false; // reset show more
+      showingAll = false;
       filterAndRender();
     });
 
     yearSelect.addEventListener('change', () => {
-      showingAll = false; // reset show more
+      showingAll = false;
       filterAndRender();
     });
 
     showMoreBtn.addEventListener('click', () => {
       showingAll = true;
-      renderList();
+      filterAndRender();
     });
 
-    // Start fetching
-    window.addEventListener('DOMContentLoaded', () => {
-      loadPublications();
-      loadGrants();
-    });
-
-    // -------------------------------------------------------------
-    // 4. Asynchronous Grants Fetching & Reactive System
-    // -------------------------------------------------------------
-    let allGrants = [];
-    const grantsContainer = document.getElementById('grants-container');
-
-    async function loadGrants() {
-      try {
-        const response = await fetch('./data/grants.json');
-        if (!response.ok) {
-          throw new Error('Failed to load local grants data');
-        }
-        allGrants = await response.json();
-      } catch (error) {
-        console.warn('Failed to load grants:', error);
-        const isFile = window.location.protocol === 'file:';
-        grantsContainer.innerHTML = `
-          <div class="p-6 text-center text-slate-500 font-mono text-sm">
-            <i class="fa-solid fa-circle-exclamation text-rose-500 text-lg mb-2 block"></i>
-            ${isFile
-              ? 'Open this page via a web server or the deployed site to load grants.'
-              : 'Failed to load research grants.'} <br>
-            <span class="text-xs text-slate-500 mt-1 block">Please view my profile directly on ORCID.</span>
-          </div>
-        `;
-        return;
-      }
-      renderGrants();
-    }
-
-    function renderGrants() {
-      if (allGrants.length === 0) {
-        grantsContainer.innerHTML = `
-          <div class="p-8 text-center text-slate-500 font-mono text-sm">
-            <i class="fa-solid fa-folder-open text-slate-600 text-lg mb-2 block"></i>
-            No research grants found.
-          </div>
-        `;
-        return;
-      }
-
-      grantsContainer.innerHTML = allGrants.map((grant, idx) => {
-        return `
-          <div class="p-6 hover:bg-slate-100/60 dark:hover:bg-slate-900/30 transition-colors duration-250 flex flex-col sm:flex-row items-start justify-between gap-4">
-            <div class="space-y-2 flex-1">
-              <div class="flex items-center space-x-2">
-                <span class="text-xs font-mono text-teal-700 dark:text-accentTeal font-bold px-1.5 py-0.5 rounded border border-teal-600/10 dark:border-accentTeal/20 bg-teal-50 dark:bg-accentTeal/5">
-                  ${escapeHtml(grant.start_year)} - ${escapeHtml(grant.end_year)}
-                </span>
-                <span class="text-xs font-mono text-slate-400 dark:text-slate-500">
-                  ID: ${escapeHtml(grant.grant_number)}
-                </span>
-              </div>
-              <h4 class="text-base font-bold text-slate-900 dark:text-white transition-colors">
-                ${escapeHtml(grant.title)}
-              </h4>
-              <p class="text-xs text-slate-600 dark:text-slate-400 font-sans leading-relaxed">
-                ${escapeHtml(grant.organization)}
-              </p>
-              <p class="text-xs font-mono text-slate-500 dark:text-slate-500 italic">
-                ${escapeHtml(grant.type)}
-              </p>
-            </div>
-
-            <div class="flex sm:flex-col items-center sm:items-end justify-center w-full sm:w-auto self-center">
-              <a href="${escapeHtml(safeUrl(grant.link))}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center px-3 py-1.5 text-xs font-mono rounded bg-slate-100 border border-slate-200 hover:border-teal-600 text-slate-700 hover:text-teal-600 dark:bg-slate-900 dark:border-brandDarkBorder dark:hover:border-accentTeal dark:text-slate-400 dark:hover:text-accentTeal transition-colors flex items-center justify-center gap-1.5 shadow-sm" title="View Grant Info">
-                <span>View Grant</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-              </a>
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
+    populateYearsDropdown();
+    filterAndRender();
   </script>
 </body>
 </html>

@@ -14,9 +14,11 @@ A single-page, framework-free static portfolio. The publications and research gr
 
 - ⚡️ **Static & dependency-free runtime** — one `index.html`, no client framework.
 - 🌗 **Dark / light theme** — toggled and persisted in `localStorage`, with no flash of unstyled content (theme is applied before first paint).
-- 🔄 **Automatic ORCID sync** — publications and grants are fetched weekly and committed to `data/`.
-- 🔍 **Client-side search, filter & pagination** over publications and grants, rendered from JSON.
-- 🛡️ **XSS-safe rendering** — all dynamic content is HTML-escaped and links are restricted to an `http/https/mailto` allowlist.
+- 🔄 **Automatic ORCID sync** — publications and grants are fetched weekly, normalized (author names, journal titles, DOI links) and committed to `data/` and `index.html`.
+- 🔎 **Indexable content** — publications and grants are pre-rendered as static HTML, so they are visible to search engines and without JavaScript.
+- 🔍 **Client-side search, year filter & pagination** over the pre-rendered publications (case- and accent-insensitive).
+- 🛡️ **Safe sync** — the sync aborts without touching existing data if any ORCID request fails or a list suddenly shrinks; all rendered content is HTML-escaped and links are restricted to an `http/https/mailto` allowlist.
+- 🏷️ **SEO & social** — canonical URL, Open Graph/Twitter cards, `Person` JSON-LD, favicon, `robots.txt` and `sitemap.xml`.
 - 🎨 **Tailwind CSS** compiled and purged ahead of time (~27 KB), not loaded from a CDN.
 
 ---
@@ -38,7 +40,7 @@ A single-page, framework-free static portfolio. The publications and research gr
 
 ```
 .
-├── index.html              # The entire site (markup + inline JS)
+├── index.html              # The entire site (markup + inline JS; ORCID lists are generated)
 ├── css/
 │   └── styles.css          # Compiled Tailwind output (committed build artifact)
 ├── src/
@@ -47,10 +49,10 @@ A single-page, framework-free static portfolio. The publications and research gr
 ├── data/
 │   ├── publications.json   # Auto-generated from ORCID
 │   └── grants.json         # Auto-generated from ORCID
-├── images/                 # Profile photo, project images, placeholder.svg
+├── images/                 # Profile photo, WebP project images, OG image, icons
 ├── scripts/
-│   ├── update_orcid.py     # Fetches & writes publications/grants from ORCID
-│   └── compress_images.py  # Helper to optimize images
+│   ├── update_orcid.py     # Fetches ORCID data, writes data/*.json and renders it into index.html
+│   └── compress_images.py  # Resizes/converts images to WebP
 ├── .github/workflows/      # ORCID sync workflow (weekly + manual dispatch)
 ├── package.json            # Tailwind build scripts
 └── requirements.txt        # Python deps for the sync script
@@ -83,7 +85,7 @@ npm run watch:css      # rebuild on change during development
 
 ### 3. Serve the site
 
-Open it via a local web server (not `file://`, so the `fetch()` of `data/*.json` works):
+Open `index.html` directly, or via a local web server:
 
 ```bash
 npx serve .
@@ -95,16 +97,27 @@ python3 -m http.server 8000
 
 ## ORCID data sync
 
-Publications and grants are pulled from the [ORCID public API](https://pub.orcid.org/) and written to `data/publications.json` and `data/grants.json`.
+Publications and grants are pulled from the [ORCID public API](https://pub.orcid.org/), written to `data/publications.json` and `data/grants.json`, and rendered as static HTML into `index.html` between the `<!-- ORCID:* -->` markers (never edit those blocks by hand).
+
+Name and journal corrections live in `AUTHOR_FIXES` and `JOURNAL_FIXES` at the top of `scripts/update_orcid.py`. The owner's name is unified as `Halabi D` and highlighted in author lists.
+
+If ORCID fails or a list drops below 80% of its previous size, the script exits with an error and changes nothing. After intentionally removing works from ORCID, run it with `ALLOW_SHRINK=1`.
 
 ### Automatic
-The workflow in `.github/workflows/` runs **every Sunday at 03:00 UTC** (and can be triggered manually from the Actions tab). It runs the Python script and commits any changes with `[skip ci]`.
+The workflow in `.github/workflows/` runs **every Sunday at 03:00 UTC** (and can be triggered manually from the Actions tab). It runs the Python script and commits any changes to `data/` and `index.html` with `[skip ci]`.
 
 ### Manual
 ```bash
 pip install -r requirements.txt
 ORCID_ID="0000-0002-1474-8066" python scripts/update_orcid.py
 ```
+
+### Images
+```bash
+pip install Pillow
+python scripts/compress_images.py SRC images/NAME.webp --max-width 1000
+```
+Then update the `<img>` `src`, `width` and `height` in `index.html`.
 
 The ORCID iD is configurable via the `ORCID_ID` environment variable (defaults to the owner's iD).
 
